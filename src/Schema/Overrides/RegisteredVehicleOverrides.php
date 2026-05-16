@@ -10,6 +10,7 @@ use NiekNijland\RDW\Records\RegisteredVehicle;
 use NiekNijland\RDW\Schema\CastType;
 use NiekNijland\RDW\Schema\DatasetSchema;
 use NiekNijland\RDW\Schema\FieldDescriptor;
+use NiekNijland\RDW\Schema\ValueVocabulary;
 
 final class RegisteredVehicleOverrides
 {
@@ -21,16 +22,64 @@ final class RegisteredVehicleOverrides
             fieldEnumClass: RegisteredVehicleField::class,
             fields: [
                 new FieldDescriptor('kenteken', 'LicensePlate', 'licensePlate', CastType::String),
-                new FieldDescriptor('voertuigsoort', 'VehicleType', 'vehicleType', CastType::String),
-                new FieldDescriptor('merk', 'Brand', 'brand', CastType::String),
-                new FieldDescriptor('handelsbenaming', 'CommercialName', 'commercialName', CastType::String),
+                new FieldDescriptor('voertuigsoort', 'VehicleType', 'vehicleType', CastType::String, ValueVocabulary::closed(
+                    'Personenauto',
+                    'Bedrijfsauto',
+                    'Motorfiets',
+                    'Bromfiets',
+                    'Aanhangwagen',
+                )),
+                new FieldDescriptor('merk', 'Brand', 'brand', CastType::String, ValueVocabulary::examples(
+                    'VOLKSWAGEN',
+                    'TOYOTA',
+                    'OPEL',
+                    'FORD',
+                    'RENAULT',
+                    'PEUGEOT',
+                    'BMW',
+                    'MERCEDES-BENZ',
+                    'AUDI',
+                    'KIA',
+                    'HYUNDAI',
+                    'FIAT',
+                    'VOLVO',
+                    'SKODA',
+                    'SEAT',
+                    'NISSAN',
+                    'CITROEN',
+                    'MAZDA',
+                    'HONDA',
+                    'MINI',
+                    'TESLA',
+                )),
+                new FieldDescriptor('handelsbenaming', 'CommercialName', 'commercialName', CastType::String, ValueVocabulary::examples(
+                    'POLO',
+                    'GOLF',
+                    'UP',
+                    'PASSAT',
+                    'TIGUAN',
+                    'AYGO',
+                    'YARIS',
+                    'COROLLA',
+                    'CORSA',
+                    'ASTRA',
+                    'CLIO',
+                    'MEGANE',
+                    '208',
+                    '308',
+                    '3',
+                    '5',
+                    'A1',
+                    'A3',
+                    'A4',
+                )),
                 new FieldDescriptor('vervaldatum_apk', 'ApkExpiryDateLegacy', 'apkExpiryDateLegacy', CastType::Excluded),
                 new FieldDescriptor('datum_tenaamstelling', 'RegistrationDateLegacy', 'registrationDateLegacy', CastType::Excluded),
                 new FieldDescriptor('bruto_bpm', 'GrossBpm', 'grossBpm', CastType::Decimal),
                 new FieldDescriptor('inrichting', 'Configuration', 'configuration', CastType::String),
                 new FieldDescriptor('aantal_zitplaatsen', 'SeatCount', 'seatCount', CastType::Integer),
-                new FieldDescriptor('eerste_kleur', 'PrimaryColor', 'primaryColor', CastType::String),
-                new FieldDescriptor('tweede_kleur', 'SecondaryColor', 'secondaryColor', CastType::String),
+                new FieldDescriptor('eerste_kleur', 'PrimaryColor', 'primaryColor', CastType::String, self::colorVocabulary()),
+                new FieldDescriptor('tweede_kleur', 'SecondaryColor', 'secondaryColor', CastType::String, self::colorVocabulary()),
                 new FieldDescriptor('aantal_cilinders', 'CylinderCount', 'cylinderCount', CastType::Integer),
                 new FieldDescriptor('cilinderinhoud', 'EngineDisplacement', 'engineDisplacement', CastType::Integer),
                 new FieldDescriptor('massa_ledig_voertuig', 'EmptyMass', 'emptyMass', CastType::Integer),
@@ -119,6 +168,26 @@ final class RegisteredVehicleOverrides
                 new FieldDescriptor('api_gekentekende_voertuigen_carrosserie_specifiek', 'BodyworkSpecificationsApiUrl', 'bodyworkSpecificationsApiUrl', CastType::Excluded),
                 new FieldDescriptor('api_gekentekende_voertuigen_voertuigklasse', 'VehicleClassesApiUrl', 'vehicleClassesApiUrl', CastType::Excluded),
             ],
+        );
+    }
+
+    private static function colorVocabulary(): ValueVocabulary
+    {
+        return ValueVocabulary::closed(
+            'WIT',
+            'ZWART',
+            'GRIJS',
+            'BLAUW',
+            'ROOD',
+            'GROEN',
+            'GEEL',
+            'BRUIN',
+            'BEIGE',
+            'PAARS',
+            'ORANJE',
+            'ZILVER',
+            'GOUD',
+            'ROZE',
         );
     }
 }

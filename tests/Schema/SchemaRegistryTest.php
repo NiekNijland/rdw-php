@@ -54,4 +54,34 @@ final class SchemaRegistryTest extends TestCase
         self::assertSame('HasOpenRecall', $byKey('openstaande_terugroepactie_indicator')?->enumCase);
         self::assertSame('OdometerJudgementCode', $byKey('code_toelichting_tellerstandoordeel')?->enumCase);
     }
+
+    public function test_registered_vehicles_exposes_vocabulary_metadata(): void
+    {
+        $schema = (new SchemaRegistry())->get(DatasetId::RegisteredVehicles);
+
+        /** @var array<string, \NiekNijland\RDW\Schema\ValueVocabulary> $vocabByCase */
+        $vocabByCase = [];
+        foreach ($schema->fieldsWithVocabulary() as $field) {
+            self::assertNotNull($field->vocabulary);
+            $vocabByCase[$field->enumCase] = $field->vocabulary;
+        }
+
+        self::assertSame(
+            ['VehicleType', 'Brand', 'CommercialName', 'PrimaryColor', 'SecondaryColor'],
+            array_keys($vocabByCase),
+        );
+
+        self::assertTrue($vocabByCase['VehicleType']->exhaustive);
+        self::assertContains('Personenauto', $vocabByCase['VehicleType']->values);
+
+        self::assertFalse($vocabByCase['Brand']->exhaustive);
+        self::assertContains('VOLKSWAGEN', $vocabByCase['Brand']->values);
+
+        self::assertTrue($vocabByCase['PrimaryColor']->exhaustive);
+        self::assertSame(
+            $vocabByCase['PrimaryColor']->values,
+            $vocabByCase['SecondaryColor']->values,
+            'Color vocabulary must be identical on primary and secondary color fields.',
+        );
+    }
 }

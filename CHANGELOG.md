@@ -2,6 +2,19 @@
 
 All notable changes to `rdw-opendata-php` will be documented in this file.
 
+## v0.2.0 - 2026-05-16
+
+### Added
+
+- `Schema\ValueVocabulary` — optional value-list metadata that can be attached to a `FieldDescriptor` via the new `vocabulary` constructor argument. Carries a `values` list plus an `exhaustive` flag and is intended for schema-introspection consumers (notably LLM-driven query builders) that want to render an enum-shaped JSON schema or anchor prompt examples without round-tripping the live API.
+- `ValueVocabulary::closed(...)` and `ValueVocabulary::examples(...)` factory helpers — the first communicates "this is the full known list" (small Dutch code lists like vehicle type and color), the second communicates "these are common values; the field is open" (brand, commercial name).
+- `DatasetSchema::fieldsWithVocabulary()` — returns only the exposed descriptors that carry vocabulary metadata, so consumers don't have to filter manually.
+- Vocabularies wired up on `RegisteredVehicles` for `VehicleType` (closed, 5 values), `PrimaryColor` / `SecondaryColor` (closed, 14 values, identical list), `Brand` and `CommercialName` (examples, 21 / 19 popular values).
+
+### Notes
+
+- Hydration behaviour is unchanged. Vocabularies are descriptive metadata only; RDW occasionally introduces new values and the library deliberately doesn't reject them.
+
 ## v0.1.1 - 2026-05-16
 
 ### Fixed

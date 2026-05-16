@@ -432,6 +432,42 @@ base class for blanket handling, or the specific type for control flow.
 | `RdwException` | Catch-all base: invalid relation join keys, malformed JSON, scalar payloads from Socrata, etc. |
 | `MissingFieldOverrideException` | Generator-time only: RDW exposes a field with no matching override. |
 
+## Schema introspection (for AI / dynamic consumers)
+
+`SchemaRegistry` is the entry point for anything that needs to reason about
+the dataset shape at runtime — e.g. an LLM-driven natural-language → SoQL
+pipeline that has to know which fields exist, how they're typed, and which
+values they accept.
+
+```php
+use NiekNijland\RDW\Datasets\DatasetId;
+use NiekNijland\RDW\Schema\SchemaRegistry;
+
+$schema = (new SchemaRegistry())->get(DatasetId::RegisteredVehicles);
+
+foreach ($schema->exposedFields() as $field) {
+    // $field->enumCase     — 'CommercialName'
+    // $field->rdwKey       — 'handelsbenaming'
+    // $field->propertyName — 'commercialName'
+    // $field->cast         — CastType case
+    // $field->vocabulary   — ?ValueVocabulary
+}
+
+foreach ($schema->fieldsWithVocabulary() as $field) {
+    $vocab = $field->vocabulary;
+    // $vocab->values     — list<string>
+    // $vocab->exhaustive — true ⇒ full known set, false ⇒ representative examples
+}
+```
+
+`ValueVocabulary::closed(...)` marks small Dutch code lists (vehicle type,
+colors) whose full set is known; `ValueVocabulary::examples(...)` marks
+fields like brand and commercial name where the list is too large to
+enumerate and consumers get a curated sample to anchor prompts or
+autocompletion. The library never enforces the vocabulary during hydration:
+RDW occasionally introduces new values, and a strict cast would turn that
+into a crash. Treat `exhaustive` as a hint, not a contract.
+
 ## Schema regeneration
 
 Field enums and record classes live under `src/Fields/` and `src/Records/`.

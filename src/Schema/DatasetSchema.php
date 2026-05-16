@@ -67,6 +67,19 @@ final readonly class DatasetSchema
         return array_values(array_filter($this->fields, static fn (FieldDescriptor $f) => $f->isExposed()));
     }
 
+    /**
+     * Exposed fields that carry an explicit {@see ValueVocabulary}.
+     *
+     * @return list<FieldDescriptor>
+     */
+    public function fieldsWithVocabulary(): array
+    {
+        return array_values(array_filter(
+            $this->exposedFields(),
+            static fn (FieldDescriptor $f) => $f->vocabulary !== null,
+        ));
+    }
+
     public function findByRdwKey(string $rdwKey): ?FieldDescriptor
     {
         return $this->byRdwKey[$rdwKey] ?? null;
