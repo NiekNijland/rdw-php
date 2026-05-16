@@ -1,11 +1,11 @@
 {
-    "name": "nieknijland/rdw-php",
+    "name": "nieknijland/rdw-opendata-php",
     "description": "A typed PHP client for the RDW Open Data Voertuigen datasets.",
     "keywords": [
         "NiekNijland",
-        "rdw-php"
+        "rdw-opendata-php"
     ],
-    "homepage": "https://github.com/nieknijland/rdw-php",
+    "homepage": "https://github.com/NiekNijland/rdw-opendata-php",
     "license": "MIT",
     "authors": [
         {

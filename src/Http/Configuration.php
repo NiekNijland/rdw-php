@@ -8,7 +8,7 @@ final readonly class Configuration
 {
     public const string DEFAULT_BASE_URL = 'https://opendata.rdw.nl';
 
-    public const string DEFAULT_USER_AGENT = 'nieknijland/rdw-php';
+    public const string DEFAULT_USER_AGENT = 'nieknijland/rdw-opendata-php';
 
     public const float DEFAULT_TIMEOUT_SECONDS = 10.0;
 

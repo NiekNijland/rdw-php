@@ -1,8 +1,8 @@
-# rdw-php
+# rdw-opendata-php
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/nieknijland/rdw-php.svg?style=flat-square)](https://packagist.org/packages/nieknijland/rdw-php)
-[![Tests](https://img.shields.io/github/actions/workflow/status/nieknijland/rdw-php/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/nieknijland/rdw-php/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/nieknijland/rdw-php.svg?style=flat-square)](https://packagist.org/packages/nieknijland/rdw-php)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/nieknijland/rdw-opendata-php.svg?style=flat-square)](https://packagist.org/packages/nieknijland/rdw-opendata-php)
+[![Tests](https://img.shields.io/github/actions/workflow/status/NiekNijland/rdw-opendata-php/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/NiekNijland/rdw-opendata-php/actions/workflows/run-tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/nieknijland/rdw-opendata-php.svg?style=flat-square)](https://packagist.org/packages/nieknijland/rdw-opendata-php)
 
 A typed PHP client for the [RDW Open Data](https://opendata.rdw.nl) `Voertuigen`
 datasets. Avoids magic Dutch field strings: every dataset has a generated
@@ -12,7 +12,7 @@ and dates are `CarbonImmutable` in UTC.
 ## Installation
 
 ```bash
-composer require nieknijland/rdw-php
+composer require nieknijland/rdw-opendata-php
 ```
 
 Requires PHP 8.4+.
