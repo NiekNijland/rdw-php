@@ -57,7 +57,8 @@ final class ValueCaster
      * Socrata's calendar_date arrives as either "2024-05-16" or
      * "2024-05-16T00:00:00.000". We only care about the date semantics,
      * so we anchor on the first ten characters and parse with an exact
-     * Y-m-d format. Anything that does not match returns null.
+     * Y-m-d format. Anything that does not match — including out-of-range
+     * days like 2024-02-30 that PHP would otherwise overflow — returns null.
      */
     private static function parseCalendarDate(string $raw): ?CarbonImmutable
     {
@@ -71,13 +72,7 @@ final class ValueCaster
             return null;
         }
 
-        try {
-            $date = CarbonImmutable::createFromFormat('!Y-m-d', $datePart, 'UTC');
-        } catch (Throwable) {
-            return null;
-        }
-
-        return $date instanceof CarbonImmutable ? $date : null;
+        return self::createStrictDate('!Y-m-d', $datePart);
     }
 
     private static function parseNumericDate(string $raw): ?CarbonImmutable
@@ -86,12 +81,26 @@ final class ValueCaster
             return null;
         }
 
+        return self::createStrictDate('!Ymd', $raw);
+    }
+
+    /**
+     * Parses with the given exact format and rejects values PHP would silently
+     * overflow (e.g. 2024-02-30 → 2024-03-01) by round-tripping the formatted
+     * date back to the input.
+     */
+    private static function createStrictDate(string $format, string $input): ?CarbonImmutable
+    {
         try {
-            $date = CarbonImmutable::createFromFormat('!Ymd', $raw, 'UTC');
+            $date = CarbonImmutable::createFromFormat($format, $input, 'UTC');
         } catch (Throwable) {
             return null;
         }
 
-        return $date instanceof CarbonImmutable ? $date : null;
+        if (! $date instanceof CarbonImmutable) {
+            return null;
+        }
+
+        return $date->format(ltrim($format, '!')) === $input ? $date : null;
     }
 }

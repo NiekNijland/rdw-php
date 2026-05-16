@@ -53,3 +53,12 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/phpunit
+
+      - name: Run static analysis
+        run: composer analyse
+
+      - name: Check code style
+        run: composer test:lint
+
+      - name: Check generated files are up to date
+        run: composer rdw:generate:check

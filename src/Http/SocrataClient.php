@@ -27,6 +27,11 @@ class SocrataClient
         ]);
     }
 
+    public function configuration(): Configuration
+    {
+        return $this->configuration;
+    }
+
     /**
      * Fetch rows from a Socrata dataset.
      *

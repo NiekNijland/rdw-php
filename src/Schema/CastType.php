@@ -19,16 +19,4 @@ enum CastType: string
     case CalendarDate = 'calendar_date';
     case NumericDate = 'numeric_date';
     case Excluded = 'excluded';
-
-    public function phpType(): string
-    {
-        return match ($this) {
-            self::String => '?string',
-            self::Integer => '?int',
-            self::Decimal => '?string',
-            self::Boolean => '?bool',
-            self::CalendarDate, self::NumericDate => '?\\Carbon\\CarbonImmutable',
-            self::Excluded => '?string',
-        };
-    }
 }

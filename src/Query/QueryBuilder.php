@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace NiekNijland\RDW\Query;
 
 use BackedEnum;
+use DateTimeImmutable;
 use DateTimeInterface;
+use DateTimeZone;
 use Generator;
 use InvalidArgumentException;
 use LogicException;
@@ -25,11 +27,13 @@ use NiekNijland\RDW\Schema\DatasetSchema;
  * Methods are chainable and return clones so partially-built queries can
  * be reused safely.
  *
- * @template TRecord of object
+ * @template-covariant TRecord of object
  */
 class QueryBuilder
 {
     private const array ALLOWED_OPERATORS = ['=', '!=', '<>', '<', '<=', '>', '>=', 'LIKE', 'NOT LIKE'];
+
+    private const string ALIAS_PATTERN = '/^[A-Za-z_][A-Za-z0-9_]*$/';
 
     /** @var list<string> */
     private array $wheres = [];
@@ -68,6 +72,12 @@ class QueryBuilder
     {
         $this->assertFieldBelongsToSchema($field);
         self::assertOperator($operator);
+
+        if ($value === null) {
+            throw new InvalidArgumentException(
+                'where() does not accept null; use whereRaw(\'field IS NULL\') for null comparisons.',
+            );
+        }
 
         $clone = clone $this;
         $clone->wheres[] = sprintf(
@@ -137,6 +147,14 @@ class QueryBuilder
 
     public function selectRaw(string $expression, ?string $alias = null): static
     {
+        if ($alias !== null && preg_match(self::ALIAS_PATTERN, $alias) !== 1) {
+            throw new InvalidArgumentException(sprintf(
+                'Alias "%s" must match %s (letters, digits, underscore; not starting with a digit).',
+                $alias,
+                self::ALIAS_PATTERN,
+            ));
+        }
+
         $clone = clone $this;
         $clone->selects[] = $alias !== null ? "{$expression} AS {$alias}" : $expression;
 
@@ -393,15 +411,20 @@ class QueryBuilder
         }
 
         if ($value instanceof DateTimeInterface) {
-            return self::quoteString($value->format('Y-m-d\TH:i:s.000'));
+            // RDW interprets datetime literals as UTC, so normalize before formatting
+            // — otherwise CarbonImmutable::parse('...', 'Europe/Amsterdam') shifts an hour.
+            $utc = (new DateTimeImmutable('@' . $value->getTimestamp()))
+                ->setTimezone(new DateTimeZone('UTC'));
+
+            return self::quoteString($utc->format('Y-m-d\TH:i:s.000'));
+        }
+
+        if (is_float($value) && ! is_finite($value)) {
+            throw new InvalidArgumentException('where() does not accept NAN or INF.');
         }
 
         if (is_int($value) || is_float($value)) {
             return (string) $value;
-        }
-
-        if ($value === null) {
-            return 'null';
         }
 
         return self::quoteString((string) $value);

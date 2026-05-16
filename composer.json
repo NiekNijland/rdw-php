@@ -42,6 +42,7 @@
         "test:lint": "Run the DIJ-digital Laravel Pint config in check mode.",
         "analyse": "Run PHPStan at level 8 with strict rules.",
         "rdw:generate": "Regenerate field enums and record classes from the overrides + metadata snapshots.",
+        "rdw:generate:check": "Fail if generated files would change. CI-friendly drift detector.",
         "codestyle": "Run Pint + PHPStan in sequence."
     },
     "bin": [
@@ -54,6 +55,7 @@
         "test:lint": "@php vendor/bin/pint --config https://raw.githubusercontent.com/DIJ-digital/pint-config/main/pint.json --test",
         "analyse": "@php vendor/bin/phpstan analyse --memory-limit=2G",
         "rdw:generate": "bin/rdw-generate",
+        "rdw:generate:check": "bin/rdw-generate --check",
         "codestyle": [
             "@pint",
             "@analyse"
@@ -65,6 +67,6 @@
             "phpstan/extension-installer": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

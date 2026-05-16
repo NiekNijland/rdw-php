@@ -79,6 +79,21 @@ final class QueryBuilderTest extends TestCase
         );
     }
 
+    public function test_datetime_values_are_normalized_to_utc_before_serialization(): void
+    {
+        // 12:00 in Amsterdam (CEST, +02:00) is 10:00 in UTC.
+        $date = CarbonImmutable::parse('2024-07-01 12:00:00', 'Europe/Amsterdam');
+
+        $params = $this->newBuilder()
+            ->where(RegisteredVehicleField::FirstAdmissionDate, $date, '>=')
+            ->toSoqlParams();
+
+        self::assertSame(
+            "datum_eerste_toelating_dt >= '2024-07-01T10:00:00.000'",
+            $params['$where'],
+        );
+    }
+
     public function test_where_in_emits_comma_separated_list(): void
     {
         $params = $this->newBuilder()
@@ -260,6 +275,39 @@ final class QueryBuilderTest extends TestCase
         $this->expectExceptionMessage('Operator "); DROP" is not allowed');
 
         $this->newBuilder()->where(RegisteredVehicleField::Brand, 'X', '); DROP');
+    }
+
+    public function test_where_rejects_null_values(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('whereRaw');
+
+        $this->newBuilder()->where(RegisteredVehicleField::Brand, null);
+    }
+
+    public function test_where_rejects_non_finite_floats(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('NAN or INF');
+
+        $this->newBuilder()->where(RegisteredVehicleField::Length, INF);
+    }
+
+    public function test_select_raw_alias_must_be_a_simple_identifier(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Alias "weird alias-with-stuff" must match');
+
+        $this->newBuilder()->selectRaw('count(*)', 'weird alias-with-stuff');
+    }
+
+    public function test_select_raw_accepts_a_well_formed_alias(): void
+    {
+        $params = $this->newBuilder()
+            ->selectRaw('count(*)', 'total_count')
+            ->toSoqlParams();
+
+        self::assertSame('count(*) AS total_count', $params['$select']);
     }
 
     public function test_where_rejects_a_field_enum_from_a_different_dataset(): void

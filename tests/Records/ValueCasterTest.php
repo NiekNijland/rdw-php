@@ -85,6 +85,13 @@ final class ValueCasterTest extends TestCase
         self::assertNull(ValueCaster::cast(CastType::CalendarDate, 'abc'));
     }
 
+    public function test_calendar_date_rejects_overflowing_dates(): void
+    {
+        // PHP would silently roll 2024-02-30 to 2024-03-01; we reject.
+        self::assertNull(ValueCaster::cast(CastType::CalendarDate, '2024-02-30'));
+        self::assertNull(ValueCaster::cast(CastType::CalendarDate, '2024-13-01'));
+    }
+
     public function test_numeric_date_parses_ymd(): void
     {
         $date = ValueCaster::cast(CastType::NumericDate, '20240516');
@@ -98,6 +105,12 @@ final class ValueCasterTest extends TestCase
         self::assertNull(ValueCaster::cast(CastType::NumericDate, '20240516T'));
         self::assertNull(ValueCaster::cast(CastType::NumericDate, '202405'));
         self::assertNull(ValueCaster::cast(CastType::NumericDate, 'YYYYMMDD'));
+    }
+
+    public function test_numeric_date_rejects_overflowing_dates(): void
+    {
+        self::assertNull(ValueCaster::cast(CastType::NumericDate, '20240230'));
+        self::assertNull(ValueCaster::cast(CastType::NumericDate, '20241301'));
     }
 
     public function test_excluded_always_returns_null(): void

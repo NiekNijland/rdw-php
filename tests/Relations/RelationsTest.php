@@ -107,6 +107,15 @@ final class RelationsTest extends TestCase
         $rdw->relations()->specificationsFor(new RegisteredVehicleBodywork(licensePlate: '6ZNS30'));
     }
 
+    public function test_relation_throws_when_join_key_is_whitespace_only(): void
+    {
+        $rdw = new Rdw();
+
+        $this->expectException(RdwException::class);
+
+        $rdw->relations()->fuelsFor(new RegisteredVehicle(licensePlate: '   '));
+    }
+
     /**
      * @param list<Response> $responses
      */

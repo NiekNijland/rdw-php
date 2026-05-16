@@ -16,6 +16,7 @@ if (! is_file($autoload)) {
 require $autoload;
 
 $root = dirname(__DIR__);
+$check = in_array('--check', array_slice($argv, 1), true);
 $generator = new EnumGenerator(new SchemaSnapshot($root.'/metadata'));
 
 try {
@@ -23,6 +24,30 @@ try {
 } catch (Throwable $e) {
     fwrite(STDERR, "Generation failed: {$e->getMessage()}\n");
     exit(1);
+}
+
+if ($check) {
+    $drift = [];
+
+    foreach ($results as $result) {
+        $path = $root.'/'.$result['file'];
+        $current = is_file($path) ? (string) file_get_contents($path) : '';
+
+        if ($current !== $result['code']) {
+            $drift[] = $result['file'];
+        }
+    }
+
+    if ($drift !== []) {
+        fwrite(STDERR, "Generated files are out of date. Re-run `composer rdw:generate`:\n");
+        foreach ($drift as $file) {
+            fwrite(STDERR, "  - {$file}\n");
+        }
+        exit(1);
+    }
+
+    echo 'OK: all '.count($results)." generated files match metadata + overrides.\n";
+    exit(0);
 }
 
 foreach ($results as $result) {

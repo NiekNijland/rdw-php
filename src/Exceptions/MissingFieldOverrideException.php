@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace NiekNijland\RDW\Exceptions;
 
-class MissingFieldOverrideException extends RdwException
+final class MissingFieldOverrideException extends RdwException
 {
+    private function __construct(string $message)
+    {
+        parent::__construct($message);
+    }
+
     /**
      * @param list<string> $missingFromOverrides
      * @param list<string> $missingFromMetadata

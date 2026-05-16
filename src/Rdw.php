@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NiekNijland\RDW;
 
+use InvalidArgumentException;
 use NiekNijland\RDW\Datasets\DatasetId;
 use NiekNijland\RDW\Datasets\DatasetRegistry;
 use NiekNijland\RDW\Http\Configuration;
@@ -29,19 +30,26 @@ class Rdw
     private readonly SchemaRegistry $schemas;
 
     public function __construct(
-        private readonly Configuration $configuration = new Configuration(),
+        ?Configuration $configuration = null,
         ?SocrataClient $http = null,
         ?DatasetRegistry $datasets = null,
         ?SchemaRegistry $schemas = null,
     ) {
-        $this->http = $http ?? new SocrataClient($this->configuration);
+        if ($configuration !== null && $http !== null) {
+            throw new InvalidArgumentException(
+                'Pass either a Configuration or a pre-built SocrataClient, not both — '
+                . 'they would disagree about the effective configuration.',
+            );
+        }
+
+        $this->http = $http ?? new SocrataClient($configuration ?? new Configuration());
         $this->datasets = $datasets ?? new DatasetRegistry();
         $this->schemas = $schemas ?? new SchemaRegistry();
     }
 
     public function configuration(): Configuration
     {
-        return $this->configuration;
+        return $this->http->configuration();
     }
 
     public function datasets(): DatasetRegistry

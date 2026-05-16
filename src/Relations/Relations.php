@@ -153,7 +153,7 @@ final class Relations
 
     private static function requireString(?string $value, string $property): string
     {
-        if ($value === null || $value === '') {
+        if ($value === null || trim($value) === '') {
             throw new RdwException(sprintf(
                 'Cannot resolve relation: source record property "%s" is missing.',
                 $property,

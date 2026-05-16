@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NiekNijland\RDW\Schema;
 
+use LogicException;
 use NiekNijland\RDW\Datasets\DatasetId;
 
 /**
@@ -34,6 +35,22 @@ final readonly class DatasetSchema
         $byEnumCase = [];
 
         foreach ($fields as $field) {
+            if (isset($byRdwKey[$field->rdwKey])) {
+                throw new LogicException(sprintf(
+                    'Duplicate rdwKey "%s" in dataset "%s".',
+                    $field->rdwKey,
+                    $datasetId->value,
+                ));
+            }
+
+            if (isset($byEnumCase[$field->enumCase])) {
+                throw new LogicException(sprintf(
+                    'Duplicate enumCase "%s" in dataset "%s".',
+                    $field->enumCase,
+                    $datasetId->value,
+                ));
+            }
+
             $byRdwKey[$field->rdwKey] = $field;
             $byEnumCase[$field->enumCase] = $field;
         }
