@@ -1,6 +1,12 @@
 # Path-based git attributes
 # https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
 
+# Normalize all text files to LF on checkout, regardless of platform.
+# The generator (src/Generator/EnumGenerator.php) emits PHP via heredocs,
+# so source-file line endings end up baked into generated output and
+# compared verbatim in tests; CRLF on a Windows checkout breaks those.
+* text=auto eol=lf
+
 # Ignore all test and documentation with "export-ignore".
 /.github export-ignore
 /.gitattributes export-ignore
