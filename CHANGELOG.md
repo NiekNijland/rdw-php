@@ -2,6 +2,12 @@
 
 All notable changes to `rdw-opendata-php` will be documented in this file.
 
+## v0.1.1 - 2026-05-16
+
+### Fixed
+
+- `select()` and `groupBy()` are now idempotent for the same field. Repeating the same column previously emitted a malformed `$select` / `$group` that RDW rejects with HTTP 400; the builder now silently dedupes so callers that pass the same field through two code paths (e.g. a select + groupBy orchestration) generate a valid request.
+
 ## v0.1.0 — initial release - 2026-05-16
 
 Initial release of the typed PHP client for the RDW Open Data `Voertuigen` datasets.

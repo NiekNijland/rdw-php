@@ -135,6 +135,32 @@ final class QueryBuilderTest extends TestCase
         self::assertSame('merk, count(*) AS total', $params['$select']);
     }
 
+    public function test_select_is_idempotent_for_the_same_field(): void
+    {
+        // RDW rejects a SoQL query whose $select repeats the same column
+        // with HTTP 400. The builder must dedupe so callers that pass the
+        // same field through two code paths (e.g. a select() + a groupBy()
+        // orchestration) don't generate a malformed request.
+        $params = $this->newBuilder()
+            ->select(RegisteredVehicleField::PrimaryColor)
+            ->select(RegisteredVehicleField::PrimaryColor)
+            ->select(RegisteredVehicleField::PrimaryColor, RegisteredVehicleField::Brand)
+            ->toSoqlParams();
+
+        self::assertSame('eerste_kleur, merk', $params['$select']);
+    }
+
+    public function test_group_by_is_idempotent_for_the_same_field(): void
+    {
+        $params = $this->newBuilder()
+            ->select(RegisteredVehicleField::Brand)
+            ->groupBy(RegisteredVehicleField::Brand)
+            ->groupBy(RegisteredVehicleField::Brand)
+            ->toSoqlParams();
+
+        self::assertSame('merk', $params['$group']);
+    }
+
     public function test_where_like_emits_a_sql_like_clause_with_quoted_pattern(): void
     {
         $params = $this->newBuilder()

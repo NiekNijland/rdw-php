@@ -369,6 +369,12 @@ class QueryBuilder
         return $clone;
     }
 
+    /**
+     * Repeated calls with the same field are idempotent — a duplicate
+     * `$select` would produce SoQL that RDW rejects with HTTP 400, so we
+     * dedupe at the builder level. Mixing with `selectRaw()` is unaffected;
+     * raw expressions are never compared against typed selects.
+     */
     public function select(BackedEnum ...$fields): static
     {
         foreach ($fields as $field) {
@@ -377,7 +383,10 @@ class QueryBuilder
 
         $clone = clone $this;
         foreach ($fields as $field) {
-            $clone->selects[] = self::encodeField($field);
+            $encoded = self::encodeField($field);
+            if (! in_array($encoded, $clone->selects, true)) {
+                $clone->selects[] = $encoded;
+            }
         }
 
         return $clone;
@@ -411,6 +420,10 @@ class QueryBuilder
         return $clone;
     }
 
+    /**
+     * Idempotent for the same field — RDW rejects a duplicate `$group`
+     * column with HTTP 400, so we dedupe at the builder level.
+     */
     public function groupBy(BackedEnum ...$fields): static
     {
         foreach ($fields as $field) {
@@ -419,7 +432,10 @@ class QueryBuilder
 
         $clone = clone $this;
         foreach ($fields as $field) {
-            $clone->groups[] = self::encodeField($field);
+            $encoded = self::encodeField($field);
+            if (! in_array($encoded, $clone->groups, true)) {
+                $clone->groups[] = $encoded;
+            }
         }
 
         return $clone;
