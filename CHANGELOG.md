@@ -2,6 +2,30 @@
 
 All notable changes to `rdw-opendata-php` will be documented in this file.
 
+## v0.1.0 — initial release - 2026-05-16
+
+Initial release of the typed PHP client for the RDW Open Data `Voertuigen` datasets.
+
+### Added
+
+- Typed entry point `Rdw` exposing 10 RDW `Voertuigen` datasets (registered vehicles, fuels, axles, bodyworks, bodywork specifications, classes, subcategories, special features, track sets, odometer judgement explanations).
+- Generated field enums under `src/Fields/` and typed record value objects under `src/Records/`, with `CarbonImmutable` UTC dates and `Ja`/`Nee` → `bool` casts.
+- Immutable fluent SoQL query builder covering every documented Socrata parameter (`$select`, `$where`, `$order`, `$group`, `$having`, `$limit`, `$offset`, `$q`) with ~30 chainable methods.
+- Typed `Relations` loader for navigating between datasets (`fuelsFor`, `axlesFor`, `bodyworksFor`, `subcategoriesFor`, `specialFeaturesFor`, `trackSetsFor`, `odometerJudgementFor`, `specificationsFor`, `vehicleClassesFor`).
+- Schema generator (`bin/rdw-generate`, `composer rdw:generate`) with CI drift detection via `composer rdw:generate:check`.
+- Typed exception hierarchy rooted at `RdwException` with dedicated `HttpException`, `RateLimitException`, `DatasetNotFoundException`, and `MissingFieldOverrideException`.
+- Raw escape hatches: `Rdw::rawRows()` / `Rdw::rawMetadata()`, plus `whereRaw` / `selectRaw` / `orderByRaw` / `havingRaw` on the builder.
+
+### Requirements
+
+- PHP 8.4+
+
+### Install
+
+```bash
+composer require nieknijland/rdw-opendata-php
+
+```
 ## v0.1.0 - 2026-05-16
 
 Initial release.
