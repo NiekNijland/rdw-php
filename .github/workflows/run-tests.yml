@@ -5,6 +5,7 @@ on:
     paths:
       - '**.php'
       - '.github/workflows/run-tests.yml'
+      - '.gitattributes'
       - 'phpunit.xml.dist'
       - 'phpstan.neon.dist'
       - 'composer.json'
@@ -13,10 +14,12 @@ on:
     paths:
       - '**.php'
       - '.github/workflows/run-tests.yml'
+      - '.gitattributes'
       - 'phpunit.xml.dist'
       - 'phpstan.neon.dist'
       - 'composer.json'
       - 'composer.lock'
+  workflow_dispatch:
 
 jobs:
   test:
