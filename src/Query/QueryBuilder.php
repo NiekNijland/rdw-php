@@ -13,6 +13,7 @@ use InvalidArgumentException;
 use LogicException;
 use NiekNijland\RDW\Http\SocrataClient;
 use NiekNijland\RDW\Records\Hydrator;
+use NiekNijland\RDW\Records\ValueCaster;
 use NiekNijland\RDW\Schema\CastType;
 use NiekNijland\RDW\Schema\DatasetSchema;
 
@@ -50,6 +51,12 @@ class QueryBuilder
     private ?int $limit = null;
 
     private ?int $offset = null;
+
+    private ?string $having = null;
+
+    private bool $distinct = false;
+
+    private ?string $fullTextSearch = null;
 
     /**
      * @param class-string<TRecord> $recordClass carries the generic binding the schema cannot
@@ -123,10 +130,241 @@ class QueryBuilder
         return $clone;
     }
 
+    /**
+     * @param list<scalar|DateTimeInterface|null> $values null is rejected at runtime; use whereNotNull instead
+     */
+    public function whereNotIn(BackedEnum $field, array $values): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        if ($values === []) {
+            throw new InvalidArgumentException('whereNotIn requires a non-empty value list.');
+        }
+
+        $clone = clone $this;
+        $encoded = [];
+
+        foreach ($values as $value) {
+            if ($value === null) {
+                throw new InvalidArgumentException(
+                    'whereNotIn does not accept null values; use whereNotNull for IS NOT NULL.',
+                );
+            }
+
+            $encoded[] = $clone->encodeValue($field, $value);
+        }
+
+        $clone->wheres[] = sprintf(
+            '%s NOT IN (%s)',
+            self::encodeField($field),
+            implode(', ', $encoded),
+        );
+
+        return $clone;
+    }
+
     public function whereRaw(string $expression): static
     {
         $clone = clone $this;
         $clone->wheres[] = $expression;
+
+        return $clone;
+    }
+
+    /**
+     * SQL-style LIKE with explicit `%` wildcards. Case-sensitive.
+     * Single quotes in the pattern are escaped; pass the wildcards as-is.
+     */
+    public function whereLike(BackedEnum $field, string $pattern): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        $clone = clone $this;
+        $clone->wheres[] = sprintf(
+            '%s LIKE %s',
+            self::encodeField($field),
+            self::quoteString($pattern),
+        );
+
+        return $clone;
+    }
+
+    /**
+     * SoQL starts_with() prefix predicate. Case-sensitive.
+     */
+    public function whereStartsWith(BackedEnum $field, string $prefix): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        $clone = clone $this;
+        $clone->wheres[] = sprintf(
+            'starts_with(%s, %s)',
+            self::encodeField($field),
+            self::quoteString($prefix),
+        );
+
+        return $clone;
+    }
+
+    /**
+     * SoQL contains() substring predicate. Case-insensitive per Socrata semantics.
+     */
+    public function whereContains(BackedEnum $field, string $substring): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        $clone = clone $this;
+        $clone->wheres[] = sprintf(
+            'contains(%s, %s)',
+            self::encodeField($field),
+            self::quoteString($substring),
+        );
+
+        return $clone;
+    }
+
+    public function whereNull(BackedEnum $field): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        $clone = clone $this;
+        $clone->wheres[] = self::encodeField($field) . ' IS NULL';
+
+        return $clone;
+    }
+
+    public function whereNotNull(BackedEnum $field): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        $clone = clone $this;
+        $clone->wheres[] = self::encodeField($field) . ' IS NOT NULL';
+
+        return $clone;
+    }
+
+    /**
+     * @param scalar|DateTimeInterface $min
+     * @param scalar|DateTimeInterface $max
+     */
+    public function whereBetween(BackedEnum $field, mixed $min, mixed $max): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        $clone = clone $this;
+        $clone->wheres[] = sprintf(
+            '%s BETWEEN %s AND %s',
+            self::encodeField($field),
+            $clone->encodeValue($field, $min),
+            $clone->encodeValue($field, $max),
+        );
+
+        return $clone;
+    }
+
+    /**
+     * @param scalar|DateTimeInterface $min
+     * @param scalar|DateTimeInterface $max
+     */
+    public function whereNotBetween(BackedEnum $field, mixed $min, mixed $max): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        $clone = clone $this;
+        $clone->wheres[] = sprintf(
+            '%s NOT BETWEEN %s AND %s',
+            self::encodeField($field),
+            $clone->encodeValue($field, $min),
+            $clone->encodeValue($field, $max),
+        );
+
+        return $clone;
+    }
+
+    /**
+     * OR-group of where clauses. The callback receives a fresh builder bound
+     * to the same dataset; chained where() calls inside the callback are
+     * combined with OR instead of the default AND. Because the builder is
+     * immutable, the callback MUST return the chained builder — a void-return
+     * closure discards every where() call.
+     *
+     * @param callable(self<TRecord>): mixed $callback
+     */
+    public function whereAny(callable $callback): static
+    {
+        /** @var class-string<TRecord> $recordClass */
+        $recordClass = $this->schema->recordClass;
+        $sub = new self($this->schema, $this->http, $recordClass);
+
+        $result = $callback($sub);
+
+        if (! $result instanceof self) {
+            throw new InvalidArgumentException(
+                'whereAny callback must return the chained QueryBuilder — the builder is '
+                . 'immutable, so a closure that does not return discards every where() call.',
+            );
+        }
+
+        if ($result->wheres === []) {
+            throw new InvalidArgumentException('whereAny callback must add at least one where clause.');
+        }
+
+        $clone = clone $this;
+        $clone->wheres[] = count($result->wheres) === 1
+            ? $result->wheres[0]
+            : '(' . implode(') OR (', $result->wheres) . ')';
+
+        return $clone;
+    }
+
+    /**
+     * NOT-wraps a sub-group of where clauses. The callback's clauses are
+     * AND-joined inside the NOT; combine with whereAny() inside the callback
+     * for NOT (a OR b).
+     *
+     * @param callable(self<TRecord>): mixed $callback
+     */
+    public function whereNot(callable $callback): static
+    {
+        /** @var class-string<TRecord> $recordClass */
+        $recordClass = $this->schema->recordClass;
+        $sub = new self($this->schema, $this->http, $recordClass);
+
+        $result = $callback($sub);
+
+        if (! $result instanceof self) {
+            throw new InvalidArgumentException(
+                'whereNot callback must return the chained QueryBuilder — the builder is '
+                . 'immutable, so a closure that does not return discards every where() call.',
+            );
+        }
+
+        if ($result->wheres === []) {
+            throw new InvalidArgumentException('whereNot callback must add at least one where clause.');
+        }
+
+        $inner = count($result->wheres) === 1
+            ? $result->wheres[0]
+            : '(' . implode(') AND (', $result->wheres) . ')';
+
+        $clone = clone $this;
+        $clone->wheres[] = 'NOT (' . $inner . ')';
+
+        return $clone;
+    }
+
+    /**
+     * Socrata full-text search across all string columns ($q parameter).
+     * The query is tokenized by whitespace; rows must contain every token.
+     */
+    public function search(string $query): static
+    {
+        if (trim($query) === '') {
+            throw new InvalidArgumentException('search() requires a non-empty query.');
+        }
+
+        $clone = clone $this;
+        $clone->fullTextSearch = $query;
 
         return $clone;
     }
@@ -157,6 +395,18 @@ class QueryBuilder
 
         $clone = clone $this;
         $clone->selects[] = $alias !== null ? "{$expression} AS {$alias}" : $expression;
+
+        return $clone;
+    }
+
+    /**
+     * Marks the projection as DISTINCT. Requires at least one select() or
+     * selectRaw() call before the query is executed.
+     */
+    public function distinct(): static
+    {
+        $clone = clone $this;
+        $clone->distinct = true;
 
         return $clone;
     }
@@ -234,15 +484,74 @@ class QueryBuilder
         return $this->selectRaw($expression, $alias);
     }
 
+    public function countDistinct(BackedEnum $field, string $alias = 'count'): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        return $this->selectRaw(sprintf('count(distinct %s)', self::encodeField($field)), $alias);
+    }
+
+    public function sum(BackedEnum $field, string $alias = 'sum'): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        return $this->selectRaw(sprintf('sum(%s)', self::encodeField($field)), $alias);
+    }
+
+    public function avg(BackedEnum $field, string $alias = 'avg'): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        return $this->selectRaw(sprintf('avg(%s)', self::encodeField($field)), $alias);
+    }
+
+    public function min(BackedEnum $field, string $alias = 'min'): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        return $this->selectRaw(sprintf('min(%s)', self::encodeField($field)), $alias);
+    }
+
+    public function max(BackedEnum $field, string $alias = 'max'): static
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        return $this->selectRaw(sprintf('max(%s)', self::encodeField($field)), $alias);
+    }
+
+    /**
+     * SoQL $having clause. The expression must reference aggregate columns
+     * (e.g. "count(*) > 100"); use RDW field keys and the same aliases you
+     * passed to sum/avg/etc.
+     */
+    public function havingRaw(string $expression): static
+    {
+        $clone = clone $this;
+        $clone->having = $expression;
+
+        return $clone;
+    }
+
     /**
      * @return array<string, string>
      */
     public function toSoqlParams(): array
     {
+        if ($this->distinct && $this->selects === []) {
+            throw new LogicException(
+                'distinct() requires at least one select() or selectRaw() call before the query is executed.',
+            );
+        }
+
         $params = [];
 
         if ($this->selects !== []) {
-            $params['$select'] = implode(', ', $this->selects);
+            $select = implode(', ', $this->selects);
+            $params['$select'] = $this->distinct ? 'distinct ' . $select : $select;
+        }
+
+        if ($this->fullTextSearch !== null) {
+            $params['$q'] = $this->fullTextSearch;
         }
 
         if ($this->wheres !== []) {
@@ -253,6 +562,10 @@ class QueryBuilder
 
         if ($this->groups !== []) {
             $params['$group'] = implode(', ', $this->groups);
+        }
+
+        if ($this->having !== null) {
+            $params['$having'] = $this->having;
         }
 
         if ($this->orders !== []) {
@@ -292,6 +605,46 @@ class QueryBuilder
         $rows = $this->limit(1)->get();
 
         return $rows[0] ?? null;
+    }
+
+    /**
+     * Returns true when at least one row matches the current query. Issues a
+     * single-row request and skips hydration.
+     */
+    public function exists(): bool
+    {
+        return $this->limit(1)->getProjection() !== [];
+    }
+
+    /**
+     * Returns a flat list of one column's values, cast through the same
+     * ValueCaster the records use. Useful for "give me every license plate"
+     * style queries without paying the full hydration cost.
+     *
+     * @return list<scalar|\Carbon\CarbonImmutable|null>
+     */
+    public function pluck(BackedEnum $field): array
+    {
+        $this->assertFieldBelongsToSchema($field);
+
+        $descriptor = $this->schema->byEnumCase[$field->name] ?? null;
+        if ($descriptor === null) {
+            throw new LogicException(sprintf(
+                'Field "%s" not found on schema "%s".',
+                $field->name,
+                $this->schema->datasetId->value,
+            ));
+        }
+
+        $rdwKey = self::encodeField($field);
+        $rows = $this->select($field)->getProjection();
+
+        $values = [];
+        foreach ($rows as $row) {
+            $values[] = ValueCaster::cast($descriptor->cast, $row[$rdwKey] ?? null);
+        }
+
+        return $values;
     }
 
     /**

@@ -10,6 +10,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use InvalidArgumentException;
+use LogicException;
 use NiekNijland\RDW\Datasets\DatasetId;
 use NiekNijland\RDW\Fields\RegisteredVehicleField;
 use NiekNijland\RDW\Fields\RegisteredVehicleFuelField;
@@ -132,6 +133,264 @@ final class QueryBuilderTest extends TestCase
             ->toSoqlParams();
 
         self::assertSame('merk, count(*) AS total', $params['$select']);
+    }
+
+    public function test_where_like_emits_a_sql_like_clause_with_quoted_pattern(): void
+    {
+        $params = $this->newBuilder()
+            ->whereLike(RegisteredVehicleField::CommercialName, 'UP%')
+            ->toSoqlParams();
+
+        self::assertSame("handelsbenaming LIKE 'UP%'", $params['$where']);
+    }
+
+    public function test_where_starts_with_emits_the_soql_starts_with_function(): void
+    {
+        $params = $this->newBuilder()
+            ->whereStartsWith(RegisteredVehicleField::CommercialName, 'UP')
+            ->toSoqlParams();
+
+        self::assertSame("starts_with(handelsbenaming, 'UP')", $params['$where']);
+    }
+
+    public function test_where_contains_emits_the_soql_contains_function(): void
+    {
+        $params = $this->newBuilder()
+            ->whereContains(RegisteredVehicleField::CommercialName, 'GTI')
+            ->toSoqlParams();
+
+        self::assertSame("contains(handelsbenaming, 'GTI')", $params['$where']);
+    }
+
+    public function test_text_predicates_escape_single_quotes_in_the_value(): void
+    {
+        $params = $this->newBuilder()
+            ->whereStartsWith(RegisteredVehicleField::CommercialName, "L'EX")
+            ->toSoqlParams();
+
+        self::assertSame("starts_with(handelsbenaming, 'L''EX')", $params['$where']);
+    }
+
+    public function test_text_predicates_reject_a_field_from_a_different_dataset(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('does not belong to dataset "m9d7-ebf2"');
+
+        $this->newBuilder()->whereContains(RegisteredVehicleFuelField::FuelDescription, 'BENZINE');
+    }
+
+    public function test_where_not_in_emits_a_not_in_clause(): void
+    {
+        $params = $this->newBuilder()
+            ->whereNotIn(RegisteredVehicleField::Brand, ['VOLKSWAGEN', 'AUDI'])
+            ->toSoqlParams();
+
+        self::assertSame(
+            "merk NOT IN ('VOLKSWAGEN', 'AUDI')",
+            $params['$where'],
+        );
+    }
+
+    public function test_where_not_in_rejects_an_empty_list(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('non-empty value list');
+
+        $this->newBuilder()->whereNotIn(RegisteredVehicleField::Brand, []);
+    }
+
+    public function test_where_null_and_where_not_null_emit_is_null_clauses(): void
+    {
+        $params = $this->newBuilder()
+            ->whereNull(RegisteredVehicleField::ApkExpiryDate)
+            ->whereNotNull(RegisteredVehicleField::FirstAdmissionDate)
+            ->toSoqlParams();
+
+        self::assertSame(
+            '(vervaldatum_apk_dt IS NULL) AND (datum_eerste_toelating_dt IS NOT NULL)',
+            $params['$where'],
+        );
+    }
+
+    public function test_where_between_emits_a_between_clause_with_encoded_values(): void
+    {
+        $params = $this->newBuilder()
+            ->whereBetween(RegisteredVehicleField::SeatCount, 2, 5)
+            ->toSoqlParams();
+
+        self::assertSame('aantal_zitplaatsen BETWEEN 2 AND 5', $params['$where']);
+    }
+
+    public function test_where_not_between_emits_a_not_between_clause(): void
+    {
+        $params = $this->newBuilder()
+            ->whereNotBetween(RegisteredVehicleField::SeatCount, 2, 5)
+            ->toSoqlParams();
+
+        self::assertSame('aantal_zitplaatsen NOT BETWEEN 2 AND 5', $params['$where']);
+    }
+
+    public function test_where_any_joins_inner_clauses_with_or(): void
+    {
+        $params = $this->newBuilder()
+            ->where(RegisteredVehicleField::Brand, 'VOLKSWAGEN')
+            ->whereAny(static fn (QueryBuilder $q): QueryBuilder => $q
+                ->whereStartsWith(RegisteredVehicleField::CommercialName, 'GTI')
+                ->whereContains(RegisteredVehicleField::CommercialName, 'R32'))
+            ->toSoqlParams();
+
+        self::assertSame(
+            "(merk = 'VOLKSWAGEN') AND ((starts_with(handelsbenaming, 'GTI')) OR (contains(handelsbenaming, 'R32')))",
+            $params['$where'],
+        );
+    }
+
+    public function test_where_any_with_a_single_inner_clause_does_not_wrap_in_or_parens(): void
+    {
+        $params = $this->newBuilder()
+            ->whereAny(static fn (QueryBuilder $q): QueryBuilder => $q
+                ->where(RegisteredVehicleField::Brand, 'AUDI'))
+            ->toSoqlParams();
+
+        self::assertSame("merk = 'AUDI'", $params['$where']);
+    }
+
+    public function test_where_any_rejects_a_callback_that_returns_nothing(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('must return the chained QueryBuilder');
+
+        $this->newBuilder()->whereAny(static function (QueryBuilder $q): void {
+            $q->where(RegisteredVehicleField::Brand, 'X');
+        });
+    }
+
+    public function test_where_any_rejects_an_empty_callback(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('at least one where clause');
+
+        $this->newBuilder()->whereAny(static fn (QueryBuilder $q): QueryBuilder => $q);
+    }
+
+    public function test_aggregate_helpers_add_alias_select_expressions(): void
+    {
+        $params = $this->newBuilder()
+            ->sum(RegisteredVehicleField::SeatCount, 'total_seats')
+            ->avg(RegisteredVehicleField::SeatCount, 'avg_seats')
+            ->min(RegisteredVehicleField::SeatCount, 'min_seats')
+            ->max(RegisteredVehicleField::SeatCount, 'max_seats')
+            ->countDistinct(RegisteredVehicleField::Brand, 'brand_variants')
+            ->toSoqlParams();
+
+        self::assertSame(
+            'sum(aantal_zitplaatsen) AS total_seats, '
+                . 'avg(aantal_zitplaatsen) AS avg_seats, '
+                . 'min(aantal_zitplaatsen) AS min_seats, '
+                . 'max(aantal_zitplaatsen) AS max_seats, '
+                . 'count(distinct merk) AS brand_variants',
+            $params['$select'],
+        );
+    }
+
+    public function test_having_raw_emits_a_having_clause(): void
+    {
+        $params = $this->newBuilder()
+            ->select(RegisteredVehicleField::Brand)
+            ->count(null, 'n')
+            ->groupBy(RegisteredVehicleField::Brand)
+            ->havingRaw('count(*) > 100')
+            ->toSoqlParams();
+
+        self::assertSame('count(*) > 100', $params['$having']);
+    }
+
+    public function test_distinct_prepends_distinct_to_the_select_clause(): void
+    {
+        $params = $this->newBuilder()
+            ->select(RegisteredVehicleField::Brand)
+            ->distinct()
+            ->toSoqlParams();
+
+        self::assertSame('distinct merk', $params['$select']);
+    }
+
+    public function test_distinct_without_a_select_throws(): void
+    {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage('distinct() requires');
+
+        $this->newBuilder()->distinct()->toSoqlParams();
+    }
+
+    public function test_where_not_wraps_a_sub_group_in_not(): void
+    {
+        $params = $this->newBuilder()
+            ->whereNot(static fn (QueryBuilder $q): QueryBuilder => $q
+                ->where(RegisteredVehicleField::Brand, 'VOLKSWAGEN')
+                ->whereStartsWith(RegisteredVehicleField::CommercialName, 'UP'))
+            ->toSoqlParams();
+
+        self::assertSame(
+            "NOT ((merk = 'VOLKSWAGEN') AND (starts_with(handelsbenaming, 'UP')))",
+            $params['$where'],
+        );
+    }
+
+    public function test_search_sets_the_full_text_q_parameter(): void
+    {
+        $params = $this->newBuilder()
+            ->where(RegisteredVehicleField::Brand, 'VOLKSWAGEN')
+            ->search('polo bluemotion')
+            ->toSoqlParams();
+
+        self::assertSame('polo bluemotion', $params['$q']);
+        self::assertSame("merk = 'VOLKSWAGEN'", $params['$where']);
+    }
+
+    public function test_search_rejects_a_whitespace_only_query(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('non-empty');
+
+        $this->newBuilder()->search('   ');
+    }
+
+    public function test_exists_returns_true_when_a_row_is_returned(): void
+    {
+        $builder = $this->newBuilder([
+            new Response(200, [], json_encode([['kenteken' => 'AB-123-C']], JSON_THROW_ON_ERROR)),
+        ]);
+
+        self::assertTrue($builder->exists());
+
+        parse_str($this->spy->last()->getUri()->getQuery(), $params);
+        self::assertSame('1', $params['$limit']);
+    }
+
+    public function test_exists_returns_false_on_an_empty_response(): void
+    {
+        $builder = $this->newBuilder([new Response(200, [], '[]')]);
+
+        self::assertFalse($builder->exists());
+    }
+
+    public function test_pluck_returns_a_list_of_cast_values_for_one_field(): void
+    {
+        $builder = $this->newBuilder([
+            new Response(200, [], json_encode([
+                ['aantal_zitplaatsen' => '5'],
+                ['aantal_zitplaatsen' => '7'],
+                ['aantal_zitplaatsen' => null],
+            ], JSON_THROW_ON_ERROR)),
+        ]);
+
+        $seats = $builder->pluck(RegisteredVehicleField::SeatCount);
+
+        self::assertSame([5, 7, null], $seats);
+
+        parse_str($this->spy->last()->getUri()->getQuery(), $params);
+        self::assertSame('aantal_zitplaatsen', $params['$select']);
     }
 
     public function test_raw_escape_hatches_are_passed_through_unchanged(): void
