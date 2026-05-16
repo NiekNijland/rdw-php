@@ -52,7 +52,7 @@ jobs:
         run: composer show -D
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit --no-coverage
 
       - name: Run static analysis
         run: composer analyse
