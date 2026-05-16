@@ -1,0 +1,376 @@
+{
+  "id" : "vezc-m2t6",
+  "name" : "Open Data RDW: Gekentekende_voertuigen_carrosserie",
+  "assetType" : "dataset",
+  "averageRating" : 0,
+  "category" : "Voertuigen",
+  "createdAt" : 1443793665,
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 50815546,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "PUBLIC_DOMAIN",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 2914932,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1716908022,
+  "publicationGroup" : 26636,
+  "publicationStage" : "published",
+  "rowClass" : "",
+  "rowsUpdatedAt" : 1778906676,
+  "rowsUpdatedBy" : "h46f-th4h",
+  "tableId" : 1950828,
+  "totalTimesRated" : 0,
+  "viewCount" : 108656,
+  "viewLastModified" : 1742940803,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1444814125,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1438447,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1444814125,
+    "targetAudience" : "public",
+    "workflowId" : 170,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "failureCount" : 0,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "dtwm-nf4m",
+      "displayName" : "Team Open Data RDW"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 25978887,
+    "name" : "Kenteken",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "kenteken",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284169,
+    "width" : 196,
+    "cachedContents" : {
+      "non_null" : "12965043",
+      "largest" : "ZZ9999",
+      "null" : "0",
+      "top" : [ {
+        "item" : "68BRR2",
+        "count" : "3"
+      }, {
+        "item" : "59BVF6",
+        "count" : "3"
+      }, {
+        "item" : "76BZX2",
+        "count" : "3"
+      }, {
+        "item" : "85BDP8",
+        "count" : "3"
+      }, {
+        "item" : "12BVD7",
+        "count" : "3"
+      }, {
+        "item" : "37BLN4",
+        "count" : "3"
+      }, {
+        "item" : "53BZL5",
+        "count" : "3"
+      }, {
+        "item" : "73BTB9",
+        "count" : "3"
+      }, {
+        "item" : "88BJJ6",
+        "count" : "3"
+      }, {
+        "item" : "92BVJ4",
+        "count" : "3"
+      }, {
+        "item" : "02BTS8",
+        "count" : "2"
+      }, {
+        "item" : "02BJN5",
+        "count" : "2"
+      }, {
+        "item" : "02BLK9",
+        "count" : "2"
+      }, {
+        "item" : "02BRK4",
+        "count" : "2"
+      }, {
+        "item" : "01BVJ5",
+        "count" : "2"
+      }, {
+        "item" : "02BJN6",
+        "count" : "2"
+      }, {
+        "item" : "03BNG3",
+        "count" : "2"
+      }, {
+        "item" : "01BNK5",
+        "count" : "2"
+      }, {
+        "item" : "00BZJ3",
+        "count" : "2"
+      }, {
+        "item" : "01BKT2",
+        "count" : "2"
+      } ],
+      "smallest" : "0001WL",
+      "count" : "12965043",
+      "cardinality" : "12965043"
+    },
+    "format" : { }
+  }, {
+    "id" : 25978888,
+    "name" : "Carrosserie volgnummer",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "carrosserie_volgnummer",
+    "position" : 3,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284170,
+    "width" : 364,
+    "cachedContents" : {
+      "non_null" : "12965043",
+      "largest" : "3",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1",
+        "count" : "12963874"
+      }, {
+        "item" : "2",
+        "count" : "1159"
+      }, {
+        "item" : "3",
+        "count" : "10"
+      } ],
+      "smallest" : "1",
+      "count" : "12965043",
+      "cardinality" : "12965043"
+    },
+    "format" : { }
+  }, {
+    "id" : 25978889,
+    "name" : "Carrosserietype",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "carrosserietype",
+    "position" : 4,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284171,
+    "width" : 280,
+    "cachedContents" : {
+      "non_null" : "12965043",
+      "largest" : "DG",
+      "null" : "0",
+      "top" : [ {
+        "item" : "AB",
+        "count" : "3918270"
+      }, {
+        "item" : "AC",
+        "count" : "3209068"
+      }, {
+        "item" : "AF",
+        "count" : "2265394"
+      }, {
+        "item" : "BB",
+        "count" : "1108536"
+      }, {
+        "item" : "DC",
+        "count" : "768797"
+      }, {
+        "item" : "AA",
+        "count" : "628049"
+      }, {
+        "item" : "AE",
+        "count" : "264716"
+      }, {
+        "item" : "BA",
+        "count" : "226803"
+      }, {
+        "item" : "DA",
+        "count" : "220400"
+      }, {
+        "item" : "AD",
+        "count" : "138535"
+      }, {
+        "item" : "BC",
+        "count" : "119433"
+      }, {
+        "item" : "DB",
+        "count" : "41335"
+      }, {
+        "item" : "BE",
+        "count" : "28229"
+      }, {
+        "item" : "DE",
+        "count" : "15732"
+      }, {
+        "item" : "CE",
+        "count" : "5394"
+      }, {
+        "item" : "CA",
+        "count" : "3781"
+      }, {
+        "item" : "CG",
+        "count" : "1127"
+      }, {
+        "item" : "CB",
+        "count" : "356"
+      }, {
+        "item" : "CQ",
+        "count" : "254"
+      }, {
+        "item" : "BD",
+        "count" : "216"
+      } ],
+      "smallest" : "AA",
+      "count" : "12965043",
+      "cardinality" : "12965043"
+    },
+    "format" : { }
+  }, {
+    "id" : 25978890,
+    "name" : "Type Carrosserie Europese omschrijving",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "type_carrosserie_europese_omschrijving",
+    "position" : 5,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284172,
+    "width" : 556,
+    "cachedContents" : {
+      "non_null" : "12964519",
+      "largest" : "Vrachtwagen",
+      "null" : "524",
+      "top" : [ {
+        "item" : "Hatchback",
+        "count" : "3918270"
+      }, {
+        "item" : "Stationwagen",
+        "count" : "3209068"
+      }, {
+        "item" : "Multipurpose vehicle (MPV)",
+        "count" : "2265394"
+      }, {
+        "item" : "Bestelwagen",
+        "count" : "1108536"
+      }, {
+        "item" : "Middenasaanhangwagen",
+        "count" : "768797"
+      }, {
+        "item" : "Sedan",
+        "count" : "628049"
+      }, {
+        "item" : "Cabriolet",
+        "count" : "264716"
+      }, {
+        "item" : "Vrachtwagen",
+        "count" : "226803"
+      }, {
+        "item" : "Oplegger",
+        "count" : "220400"
+      }, {
+        "item" : "Coupe",
+        "count" : "138535"
+      }, {
+        "item" : "Opleggertrekker",
+        "count" : "119433"
+      }, {
+        "item" : "Autonome aanhangwagen",
+        "count" : "41335"
+      }, {
+        "item" : "Pick-uptruck",
+        "count" : "28229"
+      }, {
+        "item" : "Aanhangwagen met stijve dissel",
+        "count" : "15732"
+      }, {
+        "item" : "Enkeldeksvoertuig met lage vloer",
+        "count" : "5394"
+      }, {
+        "item" : "Enkeldeksvoertuig",
+        "count" : "3781"
+      }, {
+        "item" : "Geleed enkeldeksvoertuig met lage vloer",
+        "count" : "1127"
+      }, {
+        "item" : "Dubbeldeksvoertuig",
+        "count" : "356"
+      }, {
+        "item" : "Aanhangwagentrekker",
+        "count" : "216"
+      }, {
+        "item" : "Enkeldeksvoertuig (met open dak)",
+        "count" : "161"
+      } ],
+      "smallest" : "Aanhangwagen met stijve dissel",
+      "count" : "12965043",
+      "cardinality" : "12965043"
+    },
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Public Domain"
+  },
+  "metadata" : {
+    "rdfSubject" : "0",
+    "rdfClass" : "",
+    "custom_fields" : {
+      "Licentie" : {
+        "Licentie" : "Creative Commons 0 (CC0)"
+      }
+    },
+    "rowIdentifier" : 25978891,
+    "rowLabel" : "Row",
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+    "renderTypeConfig" : {
+      "visible" : {
+        "table" : true
+      }
+    }
+  },
+  "owner" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "kenteken", "carrosserie" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

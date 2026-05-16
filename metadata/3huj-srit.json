@@ -1,0 +1,1152 @@
+{
+  "id" : "3huj-srit",
+  "name" : "Open Data RDW: Gekentekende_voertuigen_assen",
+  "assetType" : "dataset",
+  "averageRating" : 0,
+  "category" : "Voertuigen",
+  "createdAt" : 1443792837,
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 50817768,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "PUBLIC_DOMAIN",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 2927306,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1720792430,
+  "publicationGroup" : 26635,
+  "publicationStage" : "published",
+  "rowClass" : "",
+  "rowsUpdatedAt" : 1778906679,
+  "rowsUpdatedBy" : "h46f-th4h",
+  "tableId" : 1959665,
+  "totalTimesRated" : 0,
+  "viewCount" : 139944,
+  "viewLastModified" : 1742941692,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1444814130,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1444565,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1444814130,
+    "targetAudience" : "public",
+    "workflowId" : 170,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "failureCount" : 0,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "dtwm-nf4m",
+      "displayName" : "Team Open Data RDW"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 26059545,
+    "name" : "Kenteken",
+    "dataTypeName" : "text",
+    "description" : "Het kenteken van een voertuig bestaat uit een combinatie van cijfers en letters. Deze combinatie is vermeld op het kentekenbewijs en de kentekenplaat. Door het kenteken wordt een voertuig uniek en identificeerbaar.",
+    "fieldName" : "kenteken",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284159,
+    "width" : 196,
+    "cachedContents" : {
+      "non_null" : "27322616",
+      "largest" : "ZZ9999",
+      "null" : "0",
+      "top" : [ {
+        "item" : "ZZ9153",
+        "count" : "16"
+      }, {
+        "item" : "3325ZZ",
+        "count" : "14"
+      }, {
+        "item" : "3315ZZ",
+        "count" : "12"
+      }, {
+        "item" : "3410ZZ",
+        "count" : "12"
+      }, {
+        "item" : "ZZ7832",
+        "count" : "12"
+      }, {
+        "item" : "ZZ8760",
+        "count" : "10"
+      }, {
+        "item" : "ZZ8859",
+        "count" : "10"
+      }, {
+        "item" : "ZZ8862",
+        "count" : "10"
+      }, {
+        "item" : "ZZ8889",
+        "count" : "10"
+      }, {
+        "item" : "0122ZZ",
+        "count" : "9"
+      }, {
+        "item" : "0064ZZ",
+        "count" : "9"
+      }, {
+        "item" : "0084ZZ",
+        "count" : "9"
+      }, {
+        "item" : "0039ZZ",
+        "count" : "9"
+      }, {
+        "item" : "0061ZZ",
+        "count" : "9"
+      }, {
+        "item" : "0094ZZ",
+        "count" : "9"
+      }, {
+        "item" : "0123ZZ",
+        "count" : "9"
+      }, {
+        "item" : "0045ZZ",
+        "count" : "9"
+      }, {
+        "item" : "0014ZZ",
+        "count" : "9"
+      }, {
+        "item" : "0018ZZ",
+        "count" : "9"
+      }, {
+        "item" : "0113ZZ",
+        "count" : "9"
+      } ],
+      "smallest" : "0001TJ",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 26059564,
+    "name" : "As nummer",
+    "dataTypeName" : "number",
+    "description" : "Het nummer van de (fysieke) as vanaf de voorzijde van het voertuig gerekend. Bij pendelassen wordt het nummer bepaald van links naar rechts, gezien vanuit de rijrichting.",
+    "fieldName" : "as_nummer",
+    "position" : 3,
+    "renderTypeName" : "number",
+    "tableColumnId" : 15828556,
+    "width" : 208,
+    "cachedContents" : {
+      "non_null" : "27322616",
+      "largest" : "16",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1",
+        "count" : "13861447"
+      }, {
+        "item" : "2",
+        "count" : "13119389"
+      }, {
+        "item" : "3",
+        "count" : "309202"
+      }, {
+        "item" : "4",
+        "count" : "22448"
+      }, {
+        "item" : "5",
+        "count" : "6466"
+      }, {
+        "item" : "6",
+        "count" : "1684"
+      }, {
+        "item" : "7",
+        "count" : "842"
+      }, {
+        "item" : "8",
+        "count" : "747"
+      }, {
+        "item" : "9",
+        "count" : "366"
+      }, {
+        "item" : "10",
+        "count" : "9"
+      }, {
+        "item" : "11",
+        "count" : "5"
+      }, {
+        "item" : "12",
+        "count" : "5"
+      }, {
+        "item" : "13",
+        "count" : "2"
+      }, {
+        "item" : "14",
+        "count" : "2"
+      }, {
+        "item" : "15",
+        "count" : "1"
+      }, {
+        "item" : "16",
+        "count" : "1"
+      } ],
+      "smallest" : "1",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 26059562,
+    "name" : "Aantal assen",
+    "dataTypeName" : "number",
+    "description" : "Het aantal assen van een voertuig.",
+    "fieldName" : "aantal_assen",
+    "position" : 4,
+    "renderTypeName" : "number",
+    "tableColumnId" : 15828554,
+    "width" : 244,
+    "cachedContents" : {
+      "non_null" : "27322616",
+      "largest" : "16",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2",
+        "count" : "25620379"
+      }, {
+        "item" : "3",
+        "count" : "860259"
+      }, {
+        "item" : "1",
+        "count" : "742056"
+      }, {
+        "item" : "4",
+        "count" : "63928"
+      }, {
+        "item" : "5",
+        "count" : "23910"
+      }, {
+        "item" : "6",
+        "count" : "5052"
+      }, {
+        "item" : "9",
+        "count" : "3213"
+      }, {
+        "item" : "8",
+        "count" : "3048"
+      }, {
+        "item" : "7",
+        "count" : "665"
+      }, {
+        "item" : "10",
+        "count" : "40"
+      }, {
+        "item" : "12",
+        "count" : "36"
+      }, {
+        "item" : "16",
+        "count" : "16"
+      }, {
+        "item" : "14",
+        "count" : "14"
+      } ],
+      "smallest" : "1",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 26059548,
+    "name" : "Aangedreven as",
+    "dataTypeName" : "text",
+    "description" : "Ja/Nee indicator die aangeeft of de betreffende as aangedreven is of niet.\nDit gegeven is alleen van belang voor bedrijfsauto's en bussen met een wettelijk toegestane maximummassa boven de 3500 kg.",
+    "fieldName" : "aangedreven_as",
+    "position" : 5,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284162,
+    "width" : 268,
+    "cachedContents" : {
+      "non_null" : "9575346",
+      "largest" : "N",
+      "null" : "17747270",
+      "top" : [ {
+        "item" : "J",
+        "count" : "5142267"
+      }, {
+        "item" : "N",
+        "count" : "4433079"
+      } ],
+      "smallest" : "J",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 26059549,
+    "name" : "Hefas",
+    "dataTypeName" : "text",
+    "description" : "Indicator die aangeeft of een as geheven kan worden, d.w.z. zodanig omhoog  bewogen dat de wielen tijdens het rijden het wegdek niet raken.\nDeze mag alleen de waarde 'J' bevatten \n- voor bedrijfsauto als AS-NR-VRTG > 1 en AANT-ASSEN >= 3 en\n- voor aanhangwagen als AS-NR-VRTG > 0 en AANT-ASSEN >= 2.\nIn de andere gevallen moet de waarde 'N' zijn.",
+    "fieldName" : "hefas",
+    "position" : 6,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284163,
+    "width" : 160,
+    "cachedContents" : {
+      "non_null" : "3737775",
+      "largest" : "V",
+      "null" : "23584841",
+      "top" : [ {
+        "item" : "N",
+        "count" : "3583153"
+      }, {
+        "item" : "J",
+        "count" : "154361"
+      }, {
+        "item" : "n",
+        "count" : "238"
+      }, {
+        "item" : "j",
+        "count" : "13"
+      }, {
+        "item" : "A",
+        "count" : "5"
+      }, {
+        "item" : "a",
+        "count" : "2"
+      }, {
+        "item" : "M",
+        "count" : "1"
+      }, {
+        "item" : "B",
+        "count" : "1"
+      }, {
+        "item" : "V",
+        "count" : "1"
+      } ],
+      "smallest" : "a",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 26059550,
+    "name" : "Plaatscode as",
+    "dataTypeName" : "text",
+    "description" : "Codering die aangeeft of het voertuig een vooras of achteras heeft.",
+    "fieldName" : "plaatscode_as",
+    "position" : 7,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284164,
+    "width" : 256,
+    "cachedContents" : {
+      "non_null" : "20116985",
+      "largest" : "V",
+      "null" : "7205631",
+      "top" : [ {
+        "item" : "A",
+        "count" : "11246679"
+      }, {
+        "item" : "V",
+        "count" : "8869966"
+      }, {
+        "item" : "a",
+        "count" : "315"
+      }, {
+        "item" : "N",
+        "count" : "11"
+      }, {
+        "item" : "v",
+        "count" : "5"
+      }, {
+        "item" : "n",
+        "count" : "3"
+      }, {
+        "item" : "Q",
+        "count" : "2"
+      }, {
+        "item" : "0",
+        "count" : "2"
+      }, {
+        "item" : "~",
+        "count" : "1"
+      }, {
+        "item" : "4",
+        "count" : "1"
+      } ],
+      "smallest" : "~",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 26059565,
+    "name" : "Spoorbreedte",
+    "dataTypeName" : "number",
+    "description" : "Dit is de spoorbreedte van een as van een voertuig.\n\nMet spoorbreedte van een as wordt de horizontale afstand tussen het hart van het linker- en rechterwiel van die as bedoeld, gemeten op het wegdek.\n\nEen samenstel van wielen die op 1 wielnaaf zijn gemonteerd (dubbellucht) wordt dit geval aangemerkt als 1 wiel. De RDW legt dit gegeven alleen vast bij personenauto's, bedrijfsauto's en bussen met een wettelijk toegestane maximummassa niet meer dan 3500 kg.",
+    "fieldName" : "spoorbreedte",
+    "position" : 8,
+    "renderTypeName" : "number",
+    "tableColumnId" : 15828557,
+    "width" : 244,
+    "cachedContents" : {
+      "non_null" : "23804240",
+      "largest" : "995",
+      "null" : "3518376",
+      "top" : [ {
+        "item" : "154",
+        "count" : "1370107"
+      }, {
+        "item" : "156",
+        "count" : "1356522"
+      }, {
+        "item" : "155",
+        "count" : "1238950"
+      }, {
+        "item" : "153",
+        "count" : "1127774"
+      }, {
+        "item" : "152",
+        "count" : "1106009"
+      }, {
+        "item" : "157",
+        "count" : "1094749"
+      }, {
+        "item" : "147",
+        "count" : "1088030"
+      }, {
+        "item" : "141",
+        "count" : "1003406"
+      }, {
+        "item" : "142",
+        "count" : "990967"
+      }, {
+        "item" : "158",
+        "count" : "960611"
+      }, {
+        "item" : "151",
+        "count" : "952637"
+      }, {
+        "item" : "150",
+        "count" : "937652"
+      }, {
+        "item" : "148",
+        "count" : "927490"
+      }, {
+        "item" : "159",
+        "count" : "839481"
+      }, {
+        "item" : "149",
+        "count" : "800062"
+      }, {
+        "item" : "160",
+        "count" : "725024"
+      }, {
+        "item" : "146",
+        "count" : "709269"
+      }, {
+        "item" : "163",
+        "count" : "706501"
+      }, {
+        "item" : "143",
+        "count" : "644789"
+      }, {
+        "item" : "162",
+        "count" : "634327"
+      } ],
+      "smallest" : "1",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 26059552,
+    "name" : "Weggedrag code",
+    "dataTypeName" : "text",
+    "description" : "Code die aangeeft wat het weggedrag is van een aangedreven as. De volgende codes worden gebruikt:\n•\tL = Luchtvering\n•\tG = Gelijkwaardig aan luchtvering\n•\tA = Anders dan luchtvering\nDit gegeven wordt alleen vastgelegd voor bedrijfsauto's en bussen met een wettelijk toegestane maximummassa hoger dan 3500 kg.",
+    "fieldName" : "weggedrag_code",
+    "position" : 9,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284166,
+    "width" : 268,
+    "cachedContents" : {
+      "non_null" : "271575",
+      "largest" : "N",
+      "null" : "27051041",
+      "top" : [ {
+        "item" : "G",
+        "count" : "177318"
+      }, {
+        "item" : "A",
+        "count" : "63447"
+      }, {
+        "item" : "L",
+        "count" : "30809"
+      }, {
+        "item" : "N",
+        "count" : "1"
+      } ],
+      "smallest" : "A",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 26059561,
+    "name" : "Wettelijk toegestane maximum aslast",
+    "dataTypeName" : "number",
+    "description" : "De wettelijk toegestane maximummassa op de as, afgeleid van de technisch toegestane maximummassa. Zo nodig is deze verminderd aan de hand van wettelijke bepalingen of op verzoek van de aanvrager van het kentekenbewijs.",
+    "fieldName" : "wettelijk_toegestane_maximum_aslast",
+    "position" : 10,
+    "renderTypeName" : "number",
+    "tableColumnId" : 15828553,
+    "width" : 520,
+    "cachedContents" : {
+      "non_null" : "26618287",
+      "largest" : "48000",
+      "null" : "704329",
+      "top" : [ {
+        "item" : "695",
+        "count" : "879753"
+      }, {
+        "item" : "1000",
+        "count" : "846762"
+      }, {
+        "item" : "900",
+        "count" : "607521"
+      }, {
+        "item" : "9000",
+        "count" : "597601"
+      }, {
+        "item" : "1050",
+        "count" : "550221"
+      }, {
+        "item" : "800",
+        "count" : "531215"
+      }, {
+        "item" : "1200",
+        "count" : "492950"
+      }, {
+        "item" : "850",
+        "count" : "463452"
+      }, {
+        "item" : "1500",
+        "count" : "398731"
+      }, {
+        "item" : "920",
+        "count" : "370853"
+      }, {
+        "item" : "980",
+        "count" : "358779"
+      }, {
+        "item" : "1150",
+        "count" : "354856"
+      }, {
+        "item" : "770",
+        "count" : "352864"
+      }, {
+        "item" : "860",
+        "count" : "348301"
+      }, {
+        "item" : "870",
+        "count" : "332636"
+      }, {
+        "item" : "970",
+        "count" : "317777"
+      }, {
+        "item" : "1100",
+        "count" : "312365"
+      }, {
+        "item" : "960",
+        "count" : "306898"
+      }, {
+        "item" : "950",
+        "count" : "303178"
+      }, {
+        "item" : "1350",
+        "count" : "297188"
+      } ],
+      "smallest" : "1",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 26059563,
+    "name" : "Technisch toegestane maximum aslast",
+    "dataTypeName" : "number",
+    "description" : "De technisch toegestane maximummassa van de as, opgegeven door de fabrikant van het voertuig.",
+    "fieldName" : "technisch_toegestane_maximum_aslast",
+    "position" : 11,
+    "renderTypeName" : "number",
+    "tableColumnId" : 15828555,
+    "width" : 520,
+    "cachedContents" : {
+      "non_null" : "24240813",
+      "largest" : "99999",
+      "null" : "3081803",
+      "top" : [ {
+        "item" : "695",
+        "count" : "806093"
+      }, {
+        "item" : "1000",
+        "count" : "782977"
+      }, {
+        "item" : "900",
+        "count" : "559329"
+      }, {
+        "item" : "9000",
+        "count" : "529981"
+      }, {
+        "item" : "1050",
+        "count" : "497514"
+      }, {
+        "item" : "800",
+        "count" : "485321"
+      }, {
+        "item" : "1200",
+        "count" : "464327"
+      }, {
+        "item" : "850",
+        "count" : "421599"
+      }, {
+        "item" : "1500",
+        "count" : "387850"
+      }, {
+        "item" : "920",
+        "count" : "344145"
+      }, {
+        "item" : "980",
+        "count" : "334222"
+      }, {
+        "item" : "1150",
+        "count" : "330044"
+      }, {
+        "item" : "860",
+        "count" : "320571"
+      }, {
+        "item" : "870",
+        "count" : "312722"
+      }, {
+        "item" : "770",
+        "count" : "303295"
+      }, {
+        "item" : "970",
+        "count" : "286871"
+      }, {
+        "item" : "1100",
+        "count" : "284948"
+      }, {
+        "item" : "960",
+        "count" : "279355"
+      }, {
+        "item" : "1350",
+        "count" : "270291"
+      }, {
+        "item" : "950",
+        "count" : "268305"
+      } ],
+      "smallest" : "1",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 26059555,
+    "name" : "Geremde as indicator",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "geremde_as_indicator",
+    "position" : 12,
+    "renderTypeName" : "text",
+    "tableColumnId" : 14307933,
+    "cachedContents" : {
+      "non_null" : "82291",
+      "largest" : "N",
+      "null" : "27240325",
+      "top" : [ {
+        "item" : "J",
+        "count" : "76309"
+      }, {
+        "item" : "N",
+        "count" : "5982"
+      } ],
+      "smallest" : "J",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : {
+      "decimalSeparator" : ".",
+      "noCommas" : "true"
+    }
+  }, {
+    "id" : 26059556,
+    "name" : "Afstand tot volgende as voertuig",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "afstand_tot_volgende_as_voertuig",
+    "position" : 13,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326457,
+    "cachedContents" : {
+      "non_null" : "3569883",
+      "largest" : "6201",
+      "null" : "23752733",
+      "top" : [ {
+        "item" : "268",
+        "count" : "186095"
+      }, {
+        "item" : "255",
+        "count" : "133091"
+      }, {
+        "item" : "270",
+        "count" : "132179"
+      }, {
+        "item" : "277",
+        "count" : "123041"
+      }, {
+        "item" : "254",
+        "count" : "115269"
+      }, {
+        "item" : "267",
+        "count" : "113750"
+      }, {
+        "item" : "256",
+        "count" : "112732"
+      }, {
+        "item" : "131",
+        "count" : "99990"
+      }, {
+        "item" : "264",
+        "count" : "94719"
+      }, {
+        "item" : "262",
+        "count" : "94352"
+      }, {
+        "item" : "279",
+        "count" : "84670"
+      }, {
+        "item" : "259",
+        "count" : "83905"
+      }, {
+        "item" : "265",
+        "count" : "78618"
+      }, {
+        "item" : "258",
+        "count" : "68362"
+      }, {
+        "item" : "260",
+        "count" : "65880"
+      }, {
+        "item" : "243",
+        "count" : "64355"
+      }, {
+        "item" : "261",
+        "count" : "61355"
+      }, {
+        "item" : "273",
+        "count" : "60994"
+      }, {
+        "item" : "240",
+        "count" : "49350"
+      }, {
+        "item" : "271",
+        "count" : "48549"
+      } ],
+      "smallest" : "1",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : { }
+  }, {
+    "id" : 26059557,
+    "name" : "Afstand tot volgende as voertuig minimum",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "afstand_tot_volgende_as_voertuig_minimum",
+    "position" : 14,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326456,
+    "cachedContents" : {
+      "non_null" : "1500",
+      "largest" : "1025",
+      "null" : "27321116",
+      "top" : [ {
+        "item" : "155",
+        "count" : "277"
+      }, {
+        "item" : "180",
+        "count" : "154"
+      }, {
+        "item" : "145",
+        "count" : "120"
+      }, {
+        "item" : "188",
+        "count" : "55"
+      }, {
+        "item" : "111",
+        "count" : "52"
+      }, {
+        "item" : "181",
+        "count" : "46"
+      }, {
+        "item" : "300",
+        "count" : "38"
+      }, {
+        "item" : "375",
+        "count" : "36"
+      }, {
+        "item" : "270",
+        "count" : "33"
+      }, {
+        "item" : "177",
+        "count" : "33"
+      }, {
+        "item" : "329",
+        "count" : "30"
+      }, {
+        "item" : "153",
+        "count" : "28"
+      }, {
+        "item" : "103",
+        "count" : "25"
+      }, {
+        "item" : "118",
+        "count" : "21"
+      }, {
+        "item" : "157",
+        "count" : "20"
+      }, {
+        "item" : "113",
+        "count" : "19"
+      }, {
+        "item" : "277",
+        "count" : "18"
+      }, {
+        "item" : "80",
+        "count" : "18"
+      }, {
+        "item" : "235",
+        "count" : "18"
+      }, {
+        "item" : "249",
+        "count" : "16"
+      } ],
+      "smallest" : "3",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : { }
+  }, {
+    "id" : 26059558,
+    "name" : "Afstand tot volgende as voertuig maximum",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "afstand_tot_volgende_as_voertuig_maximum",
+    "position" : 15,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326455,
+    "cachedContents" : {
+      "non_null" : "1502",
+      "largest" : "1702",
+      "null" : "27321114",
+      "top" : [ {
+        "item" : "165",
+        "count" : "267"
+      }, {
+        "item" : "250",
+        "count" : "122"
+      }, {
+        "item" : "153",
+        "count" : "116"
+      }, {
+        "item" : "187",
+        "count" : "65"
+      }, {
+        "item" : "200",
+        "count" : "61"
+      }, {
+        "item" : "185",
+        "count" : "50"
+      }, {
+        "item" : "183",
+        "count" : "45"
+      }, {
+        "item" : "115",
+        "count" : "42"
+      }, {
+        "item" : "675",
+        "count" : "35"
+      }, {
+        "item" : "570",
+        "count" : "32"
+      }, {
+        "item" : "272",
+        "count" : "30"
+      }, {
+        "item" : "549",
+        "count" : "30"
+      }, {
+        "item" : "147",
+        "count" : "21"
+      }, {
+        "item" : "90",
+        "count" : "20"
+      }, {
+        "item" : "245",
+        "count" : "20"
+      }, {
+        "item" : "278",
+        "count" : "18"
+      }, {
+        "item" : "129",
+        "count" : "18"
+      }, {
+        "item" : "124",
+        "count" : "18"
+      }, {
+        "item" : "170",
+        "count" : "17"
+      }, {
+        "item" : "163",
+        "count" : "16"
+      } ],
+      "smallest" : "4",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : { }
+  }, {
+    "id" : 26059559,
+    "name" : "Maximum last as technisch maximum",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "maximum_last_as_technisch_maximum",
+    "position" : 16,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326454,
+    "cachedContents" : {
+      "non_null" : "4589",
+      "largest" : "37900",
+      "null" : "27318027",
+      "top" : [ {
+        "item" : "6000",
+        "count" : "308"
+      }, {
+        "item" : "9500",
+        "count" : "234"
+      }, {
+        "item" : "6500",
+        "count" : "226"
+      }, {
+        "item" : "8000",
+        "count" : "195"
+      }, {
+        "item" : "7500",
+        "count" : "149"
+      }, {
+        "item" : "5000",
+        "count" : "147"
+      }, {
+        "item" : "7300",
+        "count" : "136"
+      }, {
+        "item" : "4800",
+        "count" : "127"
+      }, {
+        "item" : "7000",
+        "count" : "101"
+      }, {
+        "item" : "9000",
+        "count" : "100"
+      }, {
+        "item" : "4100",
+        "count" : "99"
+      }, {
+        "item" : "3000",
+        "count" : "98"
+      }, {
+        "item" : "4000",
+        "count" : "98"
+      }, {
+        "item" : "5400",
+        "count" : "91"
+      }, {
+        "item" : "5500",
+        "count" : "90"
+      }, {
+        "item" : "3500",
+        "count" : "88"
+      }, {
+        "item" : "4500",
+        "count" : "79"
+      }, {
+        "item" : "10500",
+        "count" : "77"
+      }, {
+        "item" : "8500",
+        "count" : "76"
+      }, {
+        "item" : "4900",
+        "count" : "74"
+      } ],
+      "smallest" : "450",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : { }
+  }, {
+    "id" : 26059560,
+    "name" : "Maximum last as technisch minimum",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "maximum_last_as_technisch_minimum",
+    "position" : 17,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326453,
+    "cachedContents" : {
+      "non_null" : "4589",
+      "largest" : "14470",
+      "null" : "27318027",
+      "top" : [ {
+        "item" : "3600",
+        "count" : "289"
+      }, {
+        "item" : "2500",
+        "count" : "156"
+      }, {
+        "item" : "5150",
+        "count" : "138"
+      }, {
+        "item" : "6300",
+        "count" : "137"
+      }, {
+        "item" : "4480",
+        "count" : "136"
+      }, {
+        "item" : "4360",
+        "count" : "131"
+      }, {
+        "item" : "3100",
+        "count" : "123"
+      }, {
+        "item" : "2900",
+        "count" : "120"
+      }, {
+        "item" : "5300",
+        "count" : "110"
+      }, {
+        "item" : "5460",
+        "count" : "98"
+      }, {
+        "item" : "3270",
+        "count" : "92"
+      }, {
+        "item" : "1920",
+        "count" : "85"
+      }, {
+        "item" : "3000",
+        "count" : "83"
+      }, {
+        "item" : "4860",
+        "count" : "80"
+      }, {
+        "item" : "6000",
+        "count" : "76"
+      }, {
+        "item" : "6900",
+        "count" : "73"
+      }, {
+        "item" : "3400",
+        "count" : "72"
+      }, {
+        "item" : "5000",
+        "count" : "71"
+      }, {
+        "item" : "600",
+        "count" : "69"
+      }, {
+        "item" : "3700",
+        "count" : "67"
+      } ],
+      "smallest" : "25",
+      "count" : "27322616",
+      "cardinality" : "27322616"
+    },
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Public Domain"
+  },
+  "metadata" : {
+    "rdfSubject" : "0",
+    "rdfClass" : "",
+    "custom_fields" : {
+      "Licentie" : {
+        "Licentie" : "Creative Commons 0 (CC0)"
+      }
+    },
+    "rowIdentifier" : 26059544,
+    "rowLabel" : "Row",
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+    "renderTypeConfig" : {
+      "visible" : {
+        "table" : true
+      }
+    }
+  },
+  "owner" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "kenteken", "assen" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

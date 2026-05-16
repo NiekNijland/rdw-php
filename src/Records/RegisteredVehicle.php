@@ -1,0 +1,107 @@
+<?php
+
+declare(strict_types=1);
+
+namespace NiekNijland\RDW\Records;
+
+use Carbon\CarbonImmutable;
+
+/**
+ * Typed record for RDW dataset "m9d7-ebf2".
+ *
+ * GENERATED FILE - do not edit by hand. Update the matching Overrides class
+ * in src/Schema/Overrides and re-run `composer rdw:generate`.
+ */
+final readonly class RegisteredVehicle
+{
+    public function __construct(
+        public ?string $licensePlate = null,
+        public ?string $vehicleType = null,
+        public ?string $brand = null,
+        public ?string $commercialName = null,
+        public ?string $grossBpm = null,
+        public ?string $configuration = null,
+        public ?int $seatCount = null,
+        public ?string $primaryColor = null,
+        public ?string $secondaryColor = null,
+        public ?int $cylinderCount = null,
+        public ?int $engineDisplacement = null,
+        public ?int $emptyMass = null,
+        public ?int $permittedMaximumMass = null,
+        public ?int $readyToDriveMass = null,
+        public ?int $maximumUnbrakedTowingMass = null,
+        public ?int $maximumBrakedTowingMass = null,
+        public ?bool $isWaitingForInspection = null,
+        public ?string $catalogPrice = null,
+        public ?bool $isWamInsured = null,
+        public ?int $maximumDesignSpeed = null,
+        public ?int $loadCapacity = null,
+        public ?int $semiTrailerBrakedMass = null,
+        public ?int $trailerAutonomousBrakedMass = null,
+        public ?int $trailerCenterAxleBrakedMass = null,
+        public ?int $standingPlaceCount = null,
+        public ?int $doorCount = null,
+        public ?int $wheelCount = null,
+        public ?int $distanceCouplingToRear = null,
+        public ?int $distanceFrontToCoupling = null,
+        public ?int $alternativeMaximumSpeed = null,
+        public ?int $length = null,
+        public ?int $width = null,
+        public ?string $europeanVehicleCategory = null,
+        public ?string $europeanVehicleCategoryAddition = null,
+        public ?string $europeanVariantCategoryAddition = null,
+        public ?string $chassisNumberLocation = null,
+        public ?int $technicalMaximumMass = null,
+        public ?string $type = null,
+        public ?string $gasInstallationType = null,
+        public ?string $typeApprovalNumber = null,
+        public ?string $variant = null,
+        public ?string $execution = null,
+        public ?int $euTypeApprovalChangeSequenceNumber = null,
+        public ?string $powerToReadyMassRatio = null,
+        public ?int $wheelbase = null,
+        public ?bool $isExportRegistration = null,
+        public ?bool $hasOpenRecall = null,
+        public ?bool $isTaxi = null,
+        public ?int $maximumCombinationMass = null,
+        public ?int $wheelchairPlaceCount = null,
+        public ?int $maximumAssistiveSpeed = null,
+        public ?int $lastOdometerRegistrationYear = null,
+        public ?string $odometerJudgement = null,
+        public ?string $odometerJudgementCode = null,
+        public ?bool $canBeTransferred = null,
+        public ?CarbonImmutable $apkExpiryDate = null,
+        public ?CarbonImmutable $registrationDate = null,
+        public ?CarbonImmutable $firstAdmissionDate = null,
+        public ?CarbonImmutable $firstNetherlandsRegistrationDate = null,
+        public ?CarbonImmutable $tachographExpiryDate = null,
+        public ?int $maximumFrontAxleLoad = null,
+        public ?string $brakeSystemTypeCode = null,
+        public ?string $trackChassisConfigurationCode = null,
+        public ?int $wheelbaseMinimum = null,
+        public ?int $wheelbaseMaximum = null,
+        public ?int $lengthMinimum = null,
+        public ?int $lengthMaximum = null,
+        public ?int $widthMinimum = null,
+        public ?int $widthMaximum = null,
+        public ?int $height = null,
+        public ?int $heightMinimum = null,
+        public ?int $heightMaximum = null,
+        public ?int $operationalMassMinimum = null,
+        public ?int $operationalMassMaximum = null,
+        public ?int $technicalCouplingPointMass = null,
+        public ?int $technicalMaximumMassUpper = null,
+        public ?int $technicalMaximumMassLower = null,
+        public ?string $netherlandsSubcategory = null,
+        public ?int $couplingPointVerticalLoadTrailer = null,
+        public ?string $efficiencyClassification = null,
+        public ?CarbonImmutable $bpmDepreciationApprovalDate = null,
+        public ?string $averageLoadValue = null,
+        public ?string $aerodynamicEquipment = null,
+        public ?int $alternativeDriveAdditionalMass = null,
+        public ?bool $hasExtendedCab = null,
+        public ?int $legalPassengerSeatCount = null,
+        public ?string $designationNumber = null,
+    ) {
+    }
+}

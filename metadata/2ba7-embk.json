@@ -1,0 +1,139 @@
+{
+  "id" : "2ba7-embk",
+  "name" : "Open Data RDW: Gekentekende_voertuigen_subcategorie_voertuig",
+  "assetType" : "dataset",
+  "averageRating" : 0,
+  "category" : "Voertuigen",
+  "createdAt" : 1595845419,
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 108528,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "PUBLIC_DOMAIN",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 2914928,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1716907214,
+  "publicationGroup" : 1208403,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1778906675,
+  "rowsUpdatedBy" : "h46f-th4h",
+  "tableId" : 1950825,
+  "totalTimesRated" : 0,
+  "viewCount" : 140450,
+  "viewLastModified" : 1741198390,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1596206339,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1438444,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1596206339,
+    "targetAudience" : "public",
+    "workflowId" : 170,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1596206339,
+      "failureCount" : 0,
+      "startedAt" : 1596206339,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "dtwm-nf4m",
+      "displayName" : "Team Open Data RDW"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 25978852,
+    "name" : "Kenteken",
+    "dataTypeName" : "text",
+    "description" : "Het kenteken van een voertuig bestaat uit een combinatie van cijfers en letters. Deze combinatie is vermeld op het kentekenbewijs en de kentekenplaat. Door het kenteken wordt een voertuig uniek en identificeerbaar.",
+    "fieldName" : "kenteken",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 10253000,
+    "format" : { }
+  }, {
+    "id" : 25978853,
+    "name" : "Subcategorie voertuig volgnummer",
+    "dataTypeName" : "number",
+    "description" : "Volgnummer ter aanduiding van een wijziging op een uitvoering van een Europese subcategorie.  Voor iedere registratie is het volgnummer 1 hoger. Dit is geen Europees gegeven, maar het wordt gebruikt om het aantal voorkomens te kunnen vastleggen.",
+    "fieldName" : "subcategorie_voertuig_volgnummer",
+    "position" : 3,
+    "renderTypeName" : "number",
+    "tableColumnId" : 10252999,
+    "format" : { }
+  }, {
+    "id" : 25978854,
+    "name" : "Subcategorie voertuig europees",
+    "dataTypeName" : "text",
+    "description" : "Europese codering voor het type carrosserie voor speciale doeleinden van een voertuig.",
+    "fieldName" : "subcategorie_voertuig_europees",
+    "position" : 4,
+    "renderTypeName" : "text",
+    "tableColumnId" : 10252998,
+    "format" : { }
+  }, {
+    "id" : 25978855,
+    "name" : "Subcategorie voertuig europees omschrijving",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "subcategorie_voertuig_europees_omschrijving",
+    "position" : 5,
+    "renderTypeName" : "text",
+    "tableColumnId" : 14326368,
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Public Domain"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "Licentie" : {
+        "Licentie" : "Creative Commons 0 (CC0)"
+      }
+    },
+    "rowIdentifier" : 25978856,
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

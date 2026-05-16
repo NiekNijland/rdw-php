@@ -1,0 +1,168 @@
+{
+  "id" : "kmfi-hrps",
+  "name" : "Open Data RDW: Gekentekende_voertuigen_voertuigklasse",
+  "assetType" : "dataset",
+  "averageRating" : 0,
+  "category" : "Voertuigen",
+  "createdAt" : 1443792100,
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 50806571,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "PUBLIC_DOMAIN",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 2914927,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1716906801,
+  "publicationGroup" : 26629,
+  "publicationStage" : "published",
+  "rowClass" : "",
+  "rowsUpdatedAt" : 1778648805,
+  "rowsUpdatedBy" : "h46f-th4h",
+  "tableId" : 1950824,
+  "totalTimesRated" : 0,
+  "viewCount" : 166462,
+  "viewLastModified" : 1741197548,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1444814138,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1438442,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1444814138,
+    "targetAudience" : "public",
+    "workflowId" : 170,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "failureCount" : 0,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "dtwm-nf4m",
+      "displayName" : "Team Open Data RDW"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 25978846,
+    "name" : "Kenteken",
+    "dataTypeName" : "text",
+    "description" : "Het kenteken van een voertuig bestaat uit een combinatie van cijfers en letters. Deze combinatie is vermeld op het kentekenbewijs en de kentekenplaat. Door het kenteken wordt een voertuig uniek en identificeerbaar.",
+    "fieldName" : "kenteken",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284089,
+    "width" : 196,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 25978847,
+    "name" : "Carrosserie volgnummer",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "carrosserie_volgnummer",
+    "position" : 3,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284090,
+    "width" : 364,
+    "format" : { }
+  }, {
+    "id" : 25978848,
+    "name" : "Carrosserie klasse volgnummer",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "carrosserie_klasse_volgnummer",
+    "position" : 4,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284091,
+    "width" : 448,
+    "format" : { }
+  }, {
+    "id" : 25978849,
+    "name" : "Voertuigklasse",
+    "dataTypeName" : "text",
+    "description" : "Dit gegeven wordt vastgesteld tijdens de goedkeuring van een voertuig en geeft aan voor welke klasse(n) het voertuig is goedgekeurd. \nEen voertuig mag tot meer dan één klasse behoren. In zo’n geval kan het voertuig voor elke klasse waarin het kan worden ingedeeld, worden goedgekeurd.\nHet gegeven wordt alleen vastgesteld bij voertuigen van de Europese voertuigcategorieën M2 en M3 (bussen)\nHet gegeven kan ontbreken als deze bij een goedkeuring nog niet werd vastgelegd.\n\nVoor voertuigen met een capaciteit van meer dan 22 passagiers, de bestuurder niet meegerekend, bestaan er drie klassen voertuigen:\nklasse I., voertuigen gebouwd met ruimte voor staande passagiers  die vaak in- en uitstappen \nklasse II., voertuigen voornamelijk gebouwd voor het vervoer van zittende passagiers en ontworpen voor het vervoer van staande passagiers in het gangpad en/of op een oppervlak dat niet groter is dan de ruimte voor twee dubbele zitplaatsen;\nklasse III., voertuigen uitsluitend gebouwd voor het vervoer van zittende passagiers.\n\n\nVoor voertuigen met een capaciteit van maximaal 22 passagiers, de bestuurder niet meegerekend, zijn er twee voertuigklassen:\nklasse A., voertuigen ontworpen voor het vervoer van staande passagiers; een voertuig van deze klasse heeft zitplaatsen en moet ook voorzieningen voor staande passagiers hebben;\nklasse B., voertuigen niet ontworpen voor het vervoer van staande passagiers; een voertuig van deze klasse heeft dus geen voorzieningen voor staande passagiers.",
+    "fieldName" : "voertuigklasse",
+    "position" : 5,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284092,
+    "width" : 268,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 25978850,
+    "name" : "Voertuigklasse omschrijving",
+    "dataTypeName" : "text",
+    "description" : "Omschrijving van de voertuigklasse",
+    "fieldName" : "voertuigklasse_omschrijving",
+    "position" : 6,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284093,
+    "width" : 424,
+    "format" : {
+      "align" : "left"
+    }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Public Domain"
+  },
+  "metadata" : {
+    "rdfSubject" : "0",
+    "rdfClass" : "",
+    "custom_fields" : {
+      "Licentie" : {
+        "Licentie" : "Creative Commons 0 (CC0)"
+      }
+    },
+    "rowIdentifier" : 25978851,
+    "rowLabel" : "Row",
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+    "renderTypeConfig" : {
+      "visible" : {
+        "table" : true
+      }
+    }
+  },
+  "owner" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "kenteken" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

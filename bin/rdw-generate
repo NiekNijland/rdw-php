@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use NiekNijland\RDW\Generator\EnumGenerator;
+use NiekNijland\RDW\Generator\SchemaSnapshot;
+
+$autoload = __DIR__.'/../vendor/autoload.php';
+
+if (! is_file($autoload)) {
+    fwrite(STDERR, "Autoload not found at {$autoload}. Run `composer install` first.\n");
+    exit(1);
+}
+
+require $autoload;
+
+$root = dirname(__DIR__);
+$generator = new EnumGenerator(new SchemaSnapshot($root.'/metadata'));
+
+try {
+    $results = $generator->generate();
+} catch (Throwable $e) {
+    fwrite(STDERR, "Generation failed: {$e->getMessage()}\n");
+    exit(1);
+}
+
+foreach ($results as $result) {
+    $path = $root.'/'.$result['file'];
+    $dir = dirname($path);
+
+    if (! is_dir($dir) && ! mkdir($dir, 0o755, true) && ! is_dir($dir)) {
+        fwrite(STDERR, "Failed to create directory {$dir}\n");
+        exit(1);
+    }
+
+    if (file_put_contents($path, $result['code']) === false) {
+        fwrite(STDERR, "Failed to write {$path}\n");
+        exit(1);
+    }
+
+    echo "wrote {$result['file']}\n";
+}
+
+echo 'Generated '.count($results)." enum files.\n";

@@ -1,45 +1,67 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "nieknijland/rdw-php",
+    "description": "A typed PHP client for the RDW Open Data Voertuigen datasets.",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        "NiekNijland",
+        "rdw-php"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/nieknijland/rdw-php",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "NiekNijland",
+            "email": "niek@nijland.cc",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.4"
+        "php": "^8.4",
+        "guzzlehttp/guzzle": "^7.8",
+        "nesbot/carbon": "^3.0"
     },
     "require-dev": {
-        :require_dev_testing,
-        :require_dev_codestyle,
+        "laravel/pint": "^1.24",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpunit/phpunit": "^10.3.2",
         "spatie/ray": "^1.28"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "NiekNijland\\RDW\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "NiekNijland\\RDW\\Tests\\": "tests"
         }
     },
+    "scripts-descriptions": {
+        "pint": "Run the DIJ-digital Laravel Pint config in fix mode.",
+        "test:lint": "Run the DIJ-digital Laravel Pint config in check mode.",
+        "analyse": "Run PHPStan at level 8 with strict rules.",
+        "rdw:generate": "Regenerate field enums and record classes from the overrides + metadata snapshots.",
+        "codestyle": "Run Pint + PHPStan in sequence."
+    },
+    "bin": [
+        "bin/rdw-generate"
+    ],
     "scripts": {
-        :scripts_testing,
-        :scripts_codestyle
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html build/coverage",
+        "pint": "@php vendor/bin/pint --config https://raw.githubusercontent.com/DIJ-digital/pint-config/main/pint.json",
+        "test:lint": "@php vendor/bin/pint --config https://raw.githubusercontent.com/DIJ-digital/pint-config/main/pint.json --test",
+        "analyse": "@php vendor/bin/phpstan analyse --memory-limit=2G",
+        "rdw:generate": "bin/rdw-generate",
+        "codestyle": [
+            "@pint",
+            "@analyse"
+        ]
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            :plugins_testing,
             "phpstan/extension-installer": true
         }
     },

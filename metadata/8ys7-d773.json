@@ -1,0 +1,582 @@
+{
+  "id" : "8ys7-d773",
+  "name" : "Open Data RDW: Gekentekende_voertuigen_brandstof",
+  "assetType" : "dataset",
+  "averageRating" : 0,
+  "category" : "Voertuigen",
+  "createdAt" : 1443793899,
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 71352271,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "PUBLIC_DOMAIN",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 3113544,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1773853205,
+  "publicationGroup" : 26637,
+  "publicationStage" : "published",
+  "rowClass" : "",
+  "rowsUpdatedAt" : 1778906683,
+  "rowsUpdatedBy" : "h46f-th4h",
+  "tableId" : 2094028,
+  "totalTimesRated" : 0,
+  "viewCount" : 330538,
+  "viewLastModified" : 1773853205,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1444814119,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1553792,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1444814119,
+    "targetAudience" : "public",
+    "workflowId" : 170,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "failureCount" : 0,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "dtwm-nf4m",
+      "displayName" : "Team Open Data RDW"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 27267717,
+    "name" : "Kenteken",
+    "dataTypeName" : "text",
+    "description" : "Het kenteken van een voertuig bestaat uit een combinatie van cijfers en letters. Deze combinatie is vermeld op het kentekenbewijs en de kentekenplaat. Door het kenteken wordt een voertuig uniek en identificeerbaar.",
+    "fieldName" : "kenteken",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284173,
+    "width" : 196,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267718,
+    "name" : "Brandstof volgnummer",
+    "dataTypeName" : "text",
+    "description" : "Volgnummer waarmee de emissiegegevens bij een bepaalde brandstof in de gewenste volgorde kunnen worden getoond.",
+    "fieldName" : "brandstof_volgnummer",
+    "position" : 3,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284174,
+    "width" : 340,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267719,
+    "name" : "Brandstof omschrijving",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "brandstof_omschrijving",
+    "position" : 4,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284175,
+    "width" : 364,
+    "format" : { }
+  }, {
+    "id" : 27267720,
+    "name" : "Brandstofverbruik buiten de stad",
+    "dataTypeName" : "text",
+    "description" : "Het brandstofverbruik in l/100 km, tijdens een gestandaardiseerde rit buiten de stad, getest op een rollenbank.",
+    "fieldName" : "brandstofverbruik_buiten",
+    "position" : 5,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284176,
+    "width" : 388,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267721,
+    "name" : "Brandstofverbruik gecombineerd",
+    "dataTypeName" : "text",
+    "description" : "Het brandstofverbruik in l/100 km, tijdens een combinatie van gestandaardiseerde stadsrit- en rit buiten de stad, getest op een rollenbank.",
+    "fieldName" : "brandstofverbruik_gecombineerd",
+    "position" : 6,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284177,
+    "width" : 460,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267722,
+    "name" : "Brandstofverbruik stad",
+    "dataTypeName" : "text",
+    "description" : "Het brandstofverbruik in l/100 km, tijdens een gestandaardiseerde stadsritcyclus, getest op een rollenbank.",
+    "fieldName" : "brandstofverbruik_stad",
+    "position" : 7,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284178,
+    "width" : 364,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267723,
+    "name" : "CO2 uitstoot gecombineerd",
+    "dataTypeName" : "text",
+    "description" : "De gewogen uitstoot van CO2 in g/km van een plug-in hybride voertuig, tijdens een combinatie van een stadsrit en een rit buiten de stad, getest op een rollenbank. De waarde is berekend aan de hand van de uitstoot die ontstaat door eenmaal met lege accu’s en eenmaal met volle accu’s te rijden.",
+    "fieldName" : "co2_uitstoot_gecombineerd",
+    "position" : 8,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284179,
+    "width" : 400,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267724,
+    "name" : "CO2 uitstoot gewogen",
+    "dataTypeName" : "text",
+    "description" : "CO2 uitstoot gemeten bij een op een rollenbank gemeten voertuig, van toepassing op een extern oplaadbaar hybride elektrisch voertuig, met een oplading van buitenaf gewogen gecombineerd volgens de berekening in de richtlijn.",
+    "fieldName" : "co2_uitstoot_gewogen",
+    "position" : 9,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284180,
+    "width" : 340,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267725,
+    "name" : "Geluidsniveau rijdend",
+    "dataTypeName" : "text",
+    "description" : "Het geluidsniveau van een rijdend voertuig in dB(A), gemeten zoals voorgeschreven in de regelgeving. Voor elektrische en plug-in hybride voertuigen wordt dit gegeven niet vastgelegd.",
+    "fieldName" : "geluidsniveau_rijdend",
+    "position" : 10,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284181,
+    "width" : 352,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267726,
+    "name" : "Geluidsniveau stationair",
+    "dataTypeName" : "text",
+    "description" : "Het geluidsniveau van een stilstaand voertuig met draaiende motor in dB(A), gemeten bij het bijbehorende toerental zoals voorgeschreven in de regelgeving.\n\nVoor elektrische en plug-in hybride voertuigen wordt dit gegeven niet vastgelegd.",
+    "fieldName" : "geluidsniveau_stationair",
+    "position" : 11,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284182,
+    "width" : 388,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267727,
+    "name" : "Emissieklasse",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "emissiecode_omschrijving",
+    "position" : 12,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284183,
+    "width" : 388,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267728,
+    "name" : "Milieuklasse EG Goedkeuring (licht)",
+    "dataTypeName" : "text",
+    "description" : "Richtlijnnummer voor emissies van voertuigen waarop het voertuig is getoetst en goedgekeurd.",
+    "fieldName" : "milieuklasse_eg_goedkeuring_licht",
+    "position" : 13,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284184,
+    "width" : 520,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267729,
+    "name" : "Milieuklasse EG Goedkeuring (zwaar)",
+    "dataTypeName" : "text",
+    "description" : "Richtlijnnummer voor emissies van motoren waarop het voertuig is getoetst en goedgekeurd.",
+    "fieldName" : "milieuklasse_eg_goedkeuring_zwaar",
+    "position" : 14,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284185,
+    "width" : 520,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267730,
+    "name" : "Uitstoot deeltjes (licht)",
+    "dataTypeName" : "text",
+    "description" : "De uitstoot van het aantal deeltjes, uitgedrukt in g/km, gemeten tijdens een test op een rollenbank.",
+    "fieldName" : "uitstoot_deeltjes_licht",
+    "position" : 15,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284186,
+    "width" : 400,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267731,
+    "name" : "Uitstoot deeltjes (zwaar)",
+    "dataTypeName" : "text",
+    "description" : "De uitstoot van het aantal deeltjes, uitgedrukt in g/kWh, gemeten tijdens een test van de motor op een vermogensbank.",
+    "fieldName" : "uitstoot_deeltjes_zwaar",
+    "position" : 16,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284187,
+    "width" : 400,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267732,
+    "name" : "Nettomaximumvermogen",
+    "dataTypeName" : "text",
+    "description" : "Dit is het maximumvermogen, uitgedrukt in kW, dat de verbrandingsmotor kan leveren bij een bepaald toerental om een voertuig in beweging te brengen.",
+    "fieldName" : "nettomaximumvermogen",
+    "position" : 17,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284188,
+    "width" : 340,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267733,
+    "name" : "Nominaal continu maximumvermogen",
+    "dataTypeName" : "text",
+    "description" : "Het nominaal continu maximumvermogen, uitgedrukt in kW, dat de elektromotor kan leveren.",
+    "fieldName" : "nominaal_continu_maximumvermogen",
+    "position" : 18,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284189,
+    "width" : 484,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267734,
+    "name" : "Roetuitstoot",
+    "dataTypeName" : "text",
+    "description" : "De mate van vervuiling van de lucht die uit de uitlaat van een voertuig komt tijdens de vrije acceleratietest (roetmeting).\nDe afname van het doorgelaten licht door het in het uitlaatgas aanwezige roet wordt als k-waarde aangegeven in m-1.",
+    "fieldName" : "roetuitstoot",
+    "position" : 19,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284190,
+    "width" : 244,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267735,
+    "name" : "Toerental geluidsniveau",
+    "dataTypeName" : "text",
+    "description" : "Het aantal omwentelingen per minuut van de motor bij de meting van het geluidsniveau van een stilstaand voertuig.",
+    "fieldName" : "toerental_geluidsniveau",
+    "position" : 20,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284191,
+    "width" : 376,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 27267736,
+    "name" : "Emissie deeltjes type1 wltp",
+    "dataTypeName" : "number",
+    "description" : "Uitstoot deeltjes (massa) gemeten bij een op een rollenbank rijdend voertuig tijdens een rit volgens de WLTP type 1 test.",
+    "fieldName" : "emis_deeltjes_type1_wltp",
+    "position" : 21,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326511,
+    "format" : { }
+  }, {
+    "id" : 27267737,
+    "name" : "Emissie co2 gecombineerd wltp",
+    "dataTypeName" : "number",
+    "description" : "CO2 uitstoot gemeten bij een op een rollenbank rijdend voertuig tijdens een rit volgens de WLTP test onder gecombineerde belasting.",
+    "fieldName" : "emissie_co2_gecombineerd_wltp",
+    "position" : 22,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326510,
+    "format" : { }
+  }, {
+    "id" : 27267738,
+    "name" : "Emissie co2 gewogen gecombineerd wltp",
+    "dataTypeName" : "number",
+    "description" : "Gewogen CO2 uitstoot gemeten bij een op een rollenbank rijdend voertuig tijdens een rit volgens de WLTP test onder gecombineerde belasting.",
+    "fieldName" : "emis_co2_gewogen_gecombineerd_wltp",
+    "position" : 23,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326509,
+    "format" : { }
+  }, {
+    "id" : 27267739,
+    "name" : "Brandstof verbruik gecombineerd wltp",
+    "dataTypeName" : "number",
+    "description" : "Brandstofverbruik gemeten bij een op een rollenbank rijdend voertuig tijdens een rit volgens de WLTP test onder gecombineerde belasting.",
+    "fieldName" : "brandstof_verbruik_gecombineerd_wltp",
+    "position" : 24,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326508,
+    "format" : { }
+  }, {
+    "id" : 27267740,
+    "name" : "Brandstof verbruik gewogen gecombineerd wltp",
+    "dataTypeName" : "number",
+    "description" : "Gewogen brandstofverbruik gemeten bij een op een rollenbank rijdend voertuig tijdens een rit volgens de WLTP test onder gecombineerde belasting.",
+    "fieldName" : "brandstof_verbruik_gewogen_gecombineerd_wltp",
+    "position" : 25,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326507,
+    "format" : { }
+  }, {
+    "id" : 27267741,
+    "name" : "Elektrisch verbruik enkel elektrisch wltp",
+    "dataTypeName" : "number",
+    "description" : "Electrisch verbruik gemeten bij een op een rollenbank rijdend puur elektrisch voertuig tijdens een rit volgens de WLTP test onder gecombineerde belasting.",
+    "fieldName" : "elektrisch_verbruik_enkel_elektrisch_wltp",
+    "position" : 26,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326506,
+    "format" : { }
+  }, {
+    "id" : 27267742,
+    "name" : "Actie radius enkel elektrisch wltp",
+    "dataTypeName" : "number",
+    "description" : "Actieradius gemeten bij een op een rollenbank rijdend puur elektrisch voertuig tijdens een rit volgens de WLTP test onder gecombineerde belasting.",
+    "fieldName" : "actie_radius_enkel_elektrisch_wltp",
+    "position" : 27,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326505,
+    "format" : { }
+  }, {
+    "id" : 27267743,
+    "name" : "Actie radius enkel elektrisch stad wltp",
+    "dataTypeName" : "number",
+    "description" : "Actieradius gemeten bij een op een rollenbank rijdend puur elektrisch voertuig tijdens een rit volgens de WLTP test onder gecombineerde belasting.",
+    "fieldName" : "actie_radius_enkel_elektrisch_stad_wltp",
+    "position" : 28,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326504,
+    "format" : { }
+  }, {
+    "id" : 27267744,
+    "name" : "Elektrisch verbruik extern opladen wltp",
+    "dataTypeName" : "number",
+    "description" : "Elektrisch verbruik gemeten bij een op een rollenbank rijdend extem oplaadbaar hybride voertuig tijdens een rit volgens de WLTP test onder gecombineerde belasting.",
+    "fieldName" : "elektrisch_verbruik_extern_opladen_wltp",
+    "position" : 29,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326503,
+    "format" : { }
+  }, {
+    "id" : 27267745,
+    "name" : "Actie radius extern opladen wltp",
+    "dataTypeName" : "number",
+    "description" : "Actieradius gemeten bij een op een rollenbank rijdend extem oplaadbaar hybride voertuig tijdens een rit volgens de WLTP test onder gecombineerde belasting.",
+    "fieldName" : "actie_radius_extern_opladen_wltp",
+    "position" : 30,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326502,
+    "format" : { }
+  }, {
+    "id" : 27267746,
+    "name" : "Actie radius extern opladen stad wltp",
+    "dataTypeName" : "number",
+    "description" : "Elektrisch verbruik gemeten bij een op een rollenbank rijdend extem oplaadbaar hybride voertuig tijdens een rit volgens de WLTP test onder belasting van een gestandaardiseerde stadsrit.",
+    "fieldName" : "actie_radius_extern_opladen_stad_wltp",
+    "position" : 31,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326501,
+    "format" : { }
+  }, {
+    "id" : 27267747,
+    "name" : "Max vermogen 15 minuten",
+    "dataTypeName" : "number",
+    "description" : "Nominaal continu maximumvermogen elektrovermogen gemeten over 15 minuten.",
+    "fieldName" : "max_vermogen_15_minuten",
+    "position" : 32,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326500,
+    "format" : { }
+  }, {
+    "id" : 27267748,
+    "name" : "Max vermogen 60 minuten",
+    "dataTypeName" : "number",
+    "description" : "Maximumelektrovermogen gemeten over 60 minuten.",
+    "fieldName" : "max_vermogen_60_minuten",
+    "position" : 33,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326499,
+    "format" : { }
+  }, {
+    "id" : 27267749,
+    "name" : "Netto max vermogen elektrisch",
+    "dataTypeName" : "number",
+    "description" : "Nettomaximumvermogen elektrisch",
+    "fieldName" : "netto_max_vermogen_elektrisch",
+    "position" : 34,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326498,
+    "format" : { }
+  }, {
+    "id" : 27267750,
+    "name" : "Klasse hybride elektrisch voertuig",
+    "dataTypeName" : "text",
+    "description" : "Klasse van het hybride elektrisch voertuig.  Mogelijke waarden zijn: OVC-HEV = Off vehicle-charging hybride elektrisch voertuig NOVC-HEV = Not off-vehicle charging hybride elektrisch voertuig OVC-FCHV = Off-vehicle charging fuel cell hybride voertuig NOVC-FCHV = Not off-vehicle charging fuel cell hybride voertuig",
+    "fieldName" : "klasse_hybride_elektrisch_voertuig",
+    "position" : 35,
+    "renderTypeName" : "text",
+    "tableColumnId" : 14326496,
+    "format" : { }
+  }, {
+    "id" : 27267751,
+    "name" : "Opgegeven maximum snelheid",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "opgegeven_maximum_snelheid",
+    "position" : 36,
+    "renderTypeName" : "number",
+    "tableColumnId" : 14326495,
+    "format" : { }
+  }, {
+    "id" : 27267752,
+    "name" : "Uitlaatemissieniveau",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "uitlaatemissieniveau",
+    "position" : 37,
+    "renderTypeName" : "text",
+    "tableColumnId" : 14326497,
+    "format" : { }
+  }, {
+    "id" : 27267753,
+    "name" : "CO2 emissieklasse",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "co2_emissieklasse",
+    "position" : 38,
+    "renderTypeName" : "text",
+    "tableColumnId" : 16099204,
+    "format" : { }
+  }, {
+    "id" : 27267758,
+    "name" : "Brandstofverbruik gewogen gecombineerd",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "brandstofverbruik_gewogen_gecombineerd",
+    "position" : 39,
+    "renderTypeName" : "number",
+    "tableColumnId" : 16496385,
+    "format" : { }
+  }, {
+    "id" : 27267757,
+    "name" : "Elektriciteitsverbruik gewogen gecombineerd",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "elektriciteitsverbruik_gewogen_gecombineerd",
+    "position" : 40,
+    "renderTypeName" : "number",
+    "tableColumnId" : 16496384,
+    "format" : { }
+  }, {
+    "id" : 27267754,
+    "name" : "Actieradius extern oplaadbaar",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "actieradius_extern_oplaadbaar",
+    "position" : 41,
+    "renderTypeName" : "number",
+    "tableColumnId" : 16496381,
+    "format" : { }
+  }, {
+    "id" : 27267755,
+    "name" : "Actieradius",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "actieradius",
+    "position" : 42,
+    "renderTypeName" : "number",
+    "tableColumnId" : 16496382,
+    "format" : { }
+  }, {
+    "id" : 27267756,
+    "name" : "Elektriciteitsverbruik volledig elektrisch",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "elektriciteitsverbruik_volledig_elektrisch",
+    "position" : 43,
+    "renderTypeName" : "number",
+    "tableColumnId" : 16496383,
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Public Domain"
+  },
+  "metadata" : {
+    "rdfSubject" : "0",
+    "rdfClass" : "",
+    "custom_fields" : {
+      "Licentie" : {
+        "Licentie" : "Creative Commons 0 (CC0)"
+      }
+    },
+    "rowIdentifier" : 27267716,
+    "rowLabel" : "Row",
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+    "renderTypeConfig" : {
+      "visible" : {
+        "table" : true
+      }
+    }
+  },
+  "owner" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "kenteken", "brandstof" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

@@ -1,0 +1,123 @@
+{
+  "id" : "jqs4-4kvw",
+  "name" : "Open Data RDW: Tellerstandoordeel Trend Toelichting",
+  "assetType" : "dataset",
+  "attribution" : "RDW",
+  "averageRating" : 0,
+  "category" : "Voertuigen",
+  "createdAt" : 1619425858,
+  "description" : "De tellerstandoordelen worden in gekentekende voertuigen vermeld als codes. Deze tabel helpt de gebruiker om die codes om te zetten in begrijpbare toelichtingen.",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 42806,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "PUBLIC_DOMAIN",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 2914924,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1716905789,
+  "publicationGroup" : 1397818,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1741196178,
+  "rowsUpdatedBy" : "h46f-th4h",
+  "tableId" : 1950821,
+  "totalTimesRated" : 0,
+  "viewCount" : 73703,
+  "viewLastModified" : 1741196177,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1619427802,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1438439,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1619427802,
+    "targetAudience" : "public",
+    "workflowId" : 170,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1619427802,
+      "failureCount" : 0,
+      "startedAt" : 1619427802,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "dtwm-nf4m",
+      "displayName" : "Team Open Data RDW"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 25978828,
+    "name" : "﻿Code toelichting tellerstandoordeel",
+    "dataTypeName" : "text",
+    "description" : "Deze code geeft het oordeel aan. Tevens sleutelveld voor de uitgebreide omschrijving.",
+    "fieldName" : "code_toelichting_tellerstandoordeel",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 12809551,
+    "format" : { }
+  }, {
+    "id" : 25978829,
+    "name" : "Toelichting tellerstandoordeel",
+    "dataTypeName" : "text",
+    "description" : "Uitleg van het oordeel dat gegeven wordt. De reeks die na de laatste registratie ontstaat, bepaalt het getoonde oordeel.",
+    "fieldName" : "toelichting_tellerstandoordeel",
+    "position" : 3,
+    "renderTypeName" : "text",
+    "tableColumnId" : 12809550,
+    "width" : 574,
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Public Domain"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "Licentie" : {
+        "Licentie" : "Creative Commons 0 (CC0)"
+      }
+    },
+    "rowIdentifier" : 25978830,
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "tellerstandoordeel", "voertuigen" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

@@ -1,0 +1,519 @@
+{
+  "id" : "7ug8-2dtt",
+  "name" : "Open Data RDW: Gekentekende_voertuigen_bijzonderheden",
+  "assetType" : "dataset",
+  "averageRating" : 0,
+  "category" : "Voertuigen",
+  "createdAt" : 1595845417,
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 99510,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "PUBLIC_DOMAIN",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 2914926,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1716906414,
+  "publicationGroup" : 1208402,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1778906666,
+  "rowsUpdatedBy" : "h46f-th4h",
+  "tableId" : 1950823,
+  "totalTimesRated" : 0,
+  "viewCount" : 97110,
+  "viewLastModified" : 1741198967,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1596206346,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1438441,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1596206346,
+    "targetAudience" : "public",
+    "workflowId" : 170,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1596206346,
+      "failureCount" : 0,
+      "startedAt" : 1596206346,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "dtwm-nf4m",
+      "displayName" : "Team Open Data RDW"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 25978839,
+    "name" : "﻿Kenteken",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "kenteken",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 10252992,
+    "cachedContents" : {
+      "non_null" : "566599",
+      "largest" : "ZZ9999",
+      "null" : "0",
+      "top" : [ {
+        "item" : "01BKT2",
+        "count" : "22"
+      }, {
+        "item" : "29BPP8",
+        "count" : "20"
+      }, {
+        "item" : "92BVJ4",
+        "count" : "17"
+      }, {
+        "item" : "BD846K",
+        "count" : "17"
+      }, {
+        "item" : "65BFR6",
+        "count" : "17"
+      }, {
+        "item" : "03BZK5",
+        "count" : "17"
+      }, {
+        "item" : "36BPF1",
+        "count" : "17"
+      }, {
+        "item" : "49BXZ3",
+        "count" : "17"
+      }, {
+        "item" : "BB662L",
+        "count" : "17"
+      }, {
+        "item" : "23BKX4",
+        "count" : "16"
+      }, {
+        "item" : "88BSR9",
+        "count" : "16"
+      }, {
+        "item" : "BTJG31",
+        "count" : "16"
+      }, {
+        "item" : "BD275F",
+        "count" : "16"
+      }, {
+        "item" : "BB408V",
+        "count" : "16"
+      }, {
+        "item" : "14BJZ5",
+        "count" : "16"
+      }, {
+        "item" : "60BXH7",
+        "count" : "16"
+      }, {
+        "item" : "06BJP7",
+        "count" : "15"
+      }, {
+        "item" : "17BBG6",
+        "count" : "15"
+      }, {
+        "item" : "V105VN",
+        "count" : "15"
+      }, {
+        "item" : "VDD93F",
+        "count" : "15"
+      } ],
+      "smallest" : "0003TH",
+      "count" : "566599",
+      "cardinality" : "566599"
+    },
+    "format" : { }
+  }, {
+    "id" : 25978840,
+    "name" : "Bijzonderheid volgnummer",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "bijzonderheid_volgnummer",
+    "position" : 3,
+    "renderTypeName" : "number",
+    "tableColumnId" : 10252993,
+    "cachedContents" : {
+      "non_null" : "566599",
+      "largest" : "22",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1",
+        "count" : "350600"
+      }, {
+        "item" : "2",
+        "count" : "123620"
+      }, {
+        "item" : "3",
+        "count" : "53795"
+      }, {
+        "item" : "4",
+        "count" : "20009"
+      }, {
+        "item" : "5",
+        "count" : "8435"
+      }, {
+        "item" : "6",
+        "count" : "3138"
+      }, {
+        "item" : "7",
+        "count" : "2265"
+      }, {
+        "item" : "8",
+        "count" : "1497"
+      }, {
+        "item" : "9",
+        "count" : "940"
+      }, {
+        "item" : "10",
+        "count" : "687"
+      }, {
+        "item" : "11",
+        "count" : "517"
+      }, {
+        "item" : "12",
+        "count" : "417"
+      }, {
+        "item" : "13",
+        "count" : "258"
+      }, {
+        "item" : "14",
+        "count" : "197"
+      }, {
+        "item" : "15",
+        "count" : "124"
+      }, {
+        "item" : "16",
+        "count" : "60"
+      }, {
+        "item" : "17",
+        "count" : "17"
+      }, {
+        "item" : "18",
+        "count" : "8"
+      }, {
+        "item" : "19",
+        "count" : "5"
+      }, {
+        "item" : "20",
+        "count" : "5"
+      } ],
+      "smallest" : "1",
+      "count" : "566599",
+      "cardinality" : "566599"
+    },
+    "format" : { }
+  }, {
+    "id" : 25978841,
+    "name" : "Bijzonderheid code",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "bijzonderheid_code",
+    "position" : 4,
+    "renderTypeName" : "number",
+    "tableColumnId" : 10252994,
+    "cachedContents" : {
+      "non_null" : "566599",
+      "largest" : "999",
+      "null" : "0",
+      "top" : [ {
+        "item" : "55",
+        "count" : "65906"
+      }, {
+        "item" : "143",
+        "count" : "57065"
+      }, {
+        "item" : "144",
+        "count" : "56682"
+      }, {
+        "item" : "160",
+        "count" : "37230"
+      }, {
+        "item" : "985",
+        "count" : "30922"
+      }, {
+        "item" : "983",
+        "count" : "28482"
+      }, {
+        "item" : "134",
+        "count" : "23317"
+      }, {
+        "item" : "61",
+        "count" : "22842"
+      }, {
+        "item" : "108",
+        "count" : "20460"
+      }, {
+        "item" : "62",
+        "count" : "18873"
+      }, {
+        "item" : "982",
+        "count" : "18674"
+      }, {
+        "item" : "152",
+        "count" : "12814"
+      }, {
+        "item" : "949",
+        "count" : "12310"
+      }, {
+        "item" : "63",
+        "count" : "10678"
+      }, {
+        "item" : "984",
+        "count" : "10557"
+      }, {
+        "item" : "78",
+        "count" : "10515"
+      }, {
+        "item" : "136",
+        "count" : "7814"
+      }, {
+        "item" : "141",
+        "count" : "7598"
+      }, {
+        "item" : "146",
+        "count" : "7203"
+      }, {
+        "item" : "137",
+        "count" : "6724"
+      } ],
+      "smallest" : "2",
+      "count" : "566599",
+      "cardinality" : "566599"
+    },
+    "format" : { }
+  }, {
+    "id" : 25978842,
+    "name" : "Bijzonderheid code omschrijving",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "bijzonderheid_code_1",
+    "position" : 5,
+    "renderTypeName" : "text",
+    "tableColumnId" : 10252995,
+    "cachedContents" : {
+      "non_null" : "566599",
+      "largest" : "Wielbasis:",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Kentekenplaat model 18.2. toegestaan.",
+        "count" : "65906"
+      }, {
+        "item" : "De bevestigingspunten van de zitplaat- sen van dit voertuig zijn gewijzigd en goedgekeurd.",
+        "count" : "57065"
+      }, {
+        "item" : "De bevestigingspunten van de gordels van dit voertuig zijn gewijzigd en goedgekeurd.",
+        "count" : "56682"
+      }, {
+        "item" : "Af-fabriek roetfilter verwijderd",
+        "count" : "37230"
+      }, {
+        "item" : "afstand hart koppeling tot achterzijde voertuig (b):",
+        "count" : "30922"
+      }, {
+        "item" : "Lengte (L):",
+        "count" : "28482"
+      }, {
+        "item" : "In lange en zware voertuigcombinaties toepasbaar.",
+        "count" : "23317"
+      }, {
+        "item" : "Taxi, ingericht voor het vervoer van ten hoogste   personen buiten de be- stuurder.",
+        "count" : "22842"
+      }, {
+        "item" : "Kentekenplaat model 27.10. toegestaan",
+        "count" : "20460"
+      }, {
+        "item" : "Taxi, zie goedkeuringsdocument.",
+        "count" : "18873"
+      }, {
+        "item" : "Wielbasis:",
+        "count" : "18674"
+      }, {
+        "item" : "Maximum massa trekkend(e) voertuig(combinatie):",
+        "count" : "12814"
+      }, {
+        "item" : "Dit voertuig behoeft niet te zijn voorzien van bevestigingspunten voor gordels.",
+        "count" : "12310"
+      }, {
+        "item" : "Ingericht voor het vervoer van ten hoogste     personen buiten de be- stuurder.",
+        "count" : "10678"
+      }, {
+        "item" : "afstand voorzijde voertuig tot hart koppeling (a):",
+        "count" : "10557"
+      }, {
+        "item" : "Afgegeven ex art. 16 lid 2 R.Kr. inzake afwijkende koplamp(en).",
+        "count" : "10515"
+      }, {
+        "item" : "- max. massa middenas geremd:",
+        "count" : "9237"
+      }, {
+        "item" : "- max. massa autonoom geremd:",
+        "count" : "9005"
+      }, {
+        "item" : "- max. massa samenstel:",
+        "count" : "7814"
+      }, {
+        "item" : "Het remsysteem van dit voertuig is gewijzigd en goedgekeurd.",
+        "count" : "7598"
+      } ],
+      "smallest" : "Af-fabriek roetfilter vastgesteld",
+      "count" : "566599",
+      "cardinality" : "566599"
+    },
+    "format" : { }
+  }, {
+    "id" : 25978843,
+    "name" : "Bijzonderheid variabele tekst",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "bijzonderheid_variabele_tekst",
+    "position" : 6,
+    "renderTypeName" : "text",
+    "tableColumnId" : 10252996,
+    "cachedContents" : {
+      "non_null" : "196766",
+      "largest" : "Zwanenhals",
+      "null" : "369833",
+      "top" : [ {
+        "item" : "4",
+        "count" : "22428"
+      }, {
+        "item" : "60000",
+        "count" : "3661"
+      }, {
+        "item" : "03500",
+        "count" : "3357"
+      }, {
+        "item" : "3500",
+        "count" : "3259"
+      }, {
+        "item" : "50000",
+        "count" : "2823"
+      }, {
+        "item" : "00750",
+        "count" : "2789"
+      }, {
+        "item" : "750",
+        "count" : "2715"
+      }, {
+        "item" : "24000",
+        "count" : "2207"
+      }, {
+        "item" : "0613-0618",
+        "count" : "1723"
+      }, {
+        "item" : "0740-0993",
+        "count" : "1659"
+      }, {
+        "item" : "57500",
+        "count" : "1657"
+      }, {
+        "item" : "01",
+        "count" : "1535"
+      }, {
+        "item" : "0731-0946",
+        "count" : "1526"
+      }, {
+        "item" : "0953-1404",
+        "count" : "1437"
+      }, {
+        "item" : "53000",
+        "count" : "1297"
+      }, {
+        "item" : "40000",
+        "count" : "1233"
+      }, {
+        "item" : "060000",
+        "count" : "1182"
+      }, {
+        "item" : "080",
+        "count" : "987"
+      }, {
+        "item" : "0741-0993",
+        "count" : "982"
+      }, {
+        "item" : "0821-1200",
+        "count" : "915"
+      } ],
+      "smallest" : "0",
+      "count" : "566599",
+      "cardinality" : "566599"
+    },
+    "format" : { }
+  }, {
+    "id" : 25978844,
+    "name" : "Bijzonderheid eenheid",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "bijzonderheid_eenheid",
+    "position" : 7,
+    "renderTypeName" : "text",
+    "tableColumnId" : 10252997,
+    "cachedContents" : {
+      "non_null" : "151807",
+      "largest" : "kg",
+      "null" : "414792",
+      "top" : [ {
+        "item" : "cm",
+        "count" : "97506"
+      }, {
+        "item" : "kg",
+        "count" : "54301"
+      } ],
+      "smallest" : "cm",
+      "count" : "566599",
+      "cardinality" : "566599"
+    },
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Public Domain"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "Licentie" : {
+        "Licentie" : "Creative Commons 0 (CC0)"
+      }
+    },
+    "rowIdentifier" : 25978845,
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

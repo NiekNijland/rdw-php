@@ -1,0 +1,182 @@
+{
+  "id" : "3xwf-ince",
+  "name" : "Open Data RDW: Gekentekende_voertuigen_rupsbanden",
+  "assetType" : "dataset",
+  "averageRating" : 0,
+  "category" : "Voertuigen",
+  "createdAt" : 1637052415,
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 66387,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "PUBLIC_DOMAIN",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 2914925,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1716906019,
+  "publicationGroup" : 1496599,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1778563156,
+  "rowsUpdatedBy" : "h46f-th4h",
+  "tableId" : 1950822,
+  "totalTimesRated" : 0,
+  "viewCount" : 81435,
+  "viewLastModified" : 1741198453,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1637741334,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1438440,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1637741334,
+    "targetAudience" : "public",
+    "workflowId" : 170,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1637741334,
+      "failureCount" : 0,
+      "startedAt" : 1637741334,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "dtwm-nf4m",
+      "displayName" : "Team Open Data RDW"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 25978831,
+    "name" : "Kenteken",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "kenteken",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 13596360,
+    "format" : { }
+  }, {
+    "id" : 25978832,
+    "name" : "Rupsband set volgnummer",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "rupsband_set_volgnr",
+    "position" : 3,
+    "renderTypeName" : "number",
+    "tableColumnId" : 13596364,
+    "format" : {
+      "decimalSeparator" : ".",
+      "noCommas" : "true"
+    }
+  }, {
+    "id" : 25978833,
+    "name" : "Geremde rupsband indicator",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "geremde_rupsband_indicator",
+    "position" : 4,
+    "renderTypeName" : "text",
+    "tableColumnId" : 13596361,
+    "format" : { }
+  }, {
+    "id" : 25978834,
+    "name" : "Aangedreven rupsband indicator",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "aangedreven_rupsband_indicator",
+    "position" : 5,
+    "renderTypeName" : "text",
+    "tableColumnId" : 13596362,
+    "format" : { }
+  }, {
+    "id" : 25978835,
+    "name" : "Technisch toelaatbaar maximum massa rupsbandset",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "technisch_toelaatbaar_maximum",
+    "position" : 6,
+    "renderTypeName" : "number",
+    "tableColumnId" : 13596366,
+    "format" : {
+      "decimalSeparator" : ".",
+      "noCommas" : "true"
+    }
+  }, {
+    "id" : 25978836,
+    "name" : "Technisch toelaatbaar maximum massa rupsband set minimum",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "technisch_toelaatbaar_maximum_1",
+    "position" : 7,
+    "renderTypeName" : "number",
+    "tableColumnId" : 13596363,
+    "format" : {
+      "decimalSeparator" : ".",
+      "noCommas" : "true"
+    }
+  }, {
+    "id" : 25978837,
+    "name" : "Technisch toelaatbaar maximum massa rupsband set maximum",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "technisch_toelaatbaar_maximum_2",
+    "position" : 8,
+    "renderTypeName" : "number",
+    "tableColumnId" : 13596365,
+    "format" : {
+      "decimalSeparator" : ".",
+      "noCommas" : "true"
+    }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Public Domain"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "Licentie" : {
+        "Licentie" : "Creative Commons 0 (CC0)"
+      }
+    },
+    "rowIdentifier" : 25978838,
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "voertuigen", "kenteken" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

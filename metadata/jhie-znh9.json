@@ -1,0 +1,168 @@
+{
+  "id" : "jhie-znh9",
+  "name" : "Open Data RDW: Gekentekende_voertuigen_carrosserie_specificatie",
+  "assetType" : "dataset",
+  "attribution" : "RDW",
+  "attributionLink" : "https://opendata.rdw.nl/Voertuigen/Open-Data-RDW-Gekentekende_voertuigen_carrosserie_/jhie-znh9",
+  "averageRating" : 0,
+  "category" : "Voertuigen",
+  "createdAt" : 1443792256,
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 50803258,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "PUBLIC_DOMAIN",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 2914931,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1716907521,
+  "publicationGroup" : 26631,
+  "publicationStage" : "published",
+  "rowClass" : "",
+  "rowsUpdatedAt" : 1778906673,
+  "rowsUpdatedBy" : "h46f-th4h",
+  "tableId" : 1950827,
+  "totalTimesRated" : 0,
+  "viewCount" : 165887,
+  "viewLastModified" : 1741198811,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1444814134,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1438445,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1444814134,
+    "targetAudience" : "public",
+    "workflowId" : 170,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "failureCount" : 0,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "dtwm-nf4m",
+      "displayName" : "Team Open Data RDW"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 25978857,
+    "name" : "Kenteken",
+    "dataTypeName" : "text",
+    "description" : "Het kenteken van een voertuig bestaat uit een combinatie van cijfers en letters. Deze combinatie is vermeld op het kentekenbewijs en de kentekenplaat. Door het kenteken wordt een voertuig uniek en identificeerbaar.",
+    "fieldName" : "kenteken",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284100,
+    "width" : 196,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 25978858,
+    "name" : "Carrosserie volgnummer",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "carrosserie_volgnummer",
+    "position" : 3,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284101,
+    "width" : 364,
+    "format" : { }
+  }, {
+    "id" : 25978859,
+    "name" : "Carrosserie voertuig nummer code volgnummer",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "carrosserie_voertuig_nummer_code_volgnummer",
+    "position" : 4,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284102,
+    "width" : 616,
+    "format" : { }
+  }, {
+    "id" : 25978860,
+    "name" : "Carrosseriecode",
+    "dataTypeName" : "text",
+    "description" : "Europese codering voor het carrosserietype van een goedgekeurd compleet of voltooid voertuig van de EEG-VRTG-CAT M, N of O. \nZie bijlage II van de richtlijn 2007/46/EG voor codering.\n",
+    "fieldName" : "carrosseriecode",
+    "position" : 5,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284103,
+    "width" : 280,
+    "format" : {
+      "align" : "left"
+    }
+  }, {
+    "id" : 25978861,
+    "name" : "Carrosserie voertuig nummer Europese omschrijving",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "carrosserie_voertuig_nummer_europese_omschrijving",
+    "position" : 6,
+    "renderTypeName" : "text",
+    "tableColumnId" : 284104,
+    "width" : 688,
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Public Domain"
+  },
+  "metadata" : {
+    "rdfSubject" : "0",
+    "rdfClass" : "",
+    "custom_fields" : {
+      "Licentie" : {
+        "Licentie" : "Creative Commons 0 (CC0)"
+      }
+    },
+    "rowIdentifier" : 25978862,
+    "rowLabel" : "Row",
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+    "renderTypeConfig" : {
+      "visible" : {
+        "table" : true
+      }
+    }
+  },
+  "owner" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "dtwm-nf4m",
+    "displayName" : "Team Open Data RDW",
+    "profileImageUrlLarge" : "/api/users/dtwm-nf4m/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/dtwm-nf4m/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/dtwm-nf4m/profile_images/TINY",
+    "screenName" : "Team Open Data RDW",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "kenteken", "carrosserie" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}
