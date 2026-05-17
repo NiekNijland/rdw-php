@@ -31,7 +31,7 @@ final class QueryBuilderTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->spy = new RequestSpy();
+        $this->spy = new RequestSpy;
     }
 
     public function test_typed_where_translates_to_rdw_field_keys(): void
@@ -159,6 +159,20 @@ final class QueryBuilderTest extends TestCase
             ->toSoqlParams();
 
         self::assertSame('merk', $params['$group']);
+    }
+
+    public function test_group_by_raw_appends_an_arbitrary_soql_expression(): void
+    {
+        $params = $this->newBuilder()
+            ->selectRaw('date_trunc_ym(datum_tenaamstelling_dt)', 'bucket')
+            ->groupBy(RegisteredVehicleField::Brand)
+            ->groupByRaw('date_trunc_ym(datum_tenaamstelling_dt)')
+            ->toSoqlParams();
+
+        self::assertSame(
+            'merk, date_trunc_ym(datum_tenaamstelling_dt)',
+            $params['$group'],
+        );
     }
 
     public function test_where_like_emits_a_sql_like_clause_with_quoted_pattern(): void
@@ -311,10 +325,10 @@ final class QueryBuilderTest extends TestCase
 
         self::assertSame(
             'sum(aantal_zitplaatsen) AS total_seats, '
-                . 'avg(aantal_zitplaatsen) AS avg_seats, '
-                . 'min(aantal_zitplaatsen) AS min_seats, '
-                . 'max(aantal_zitplaatsen) AS max_seats, '
-                . 'count(distinct merk) AS brand_variants',
+                .'avg(aantal_zitplaatsen) AS avg_seats, '
+                .'min(aantal_zitplaatsen) AS min_seats, '
+                .'max(aantal_zitplaatsen) AS max_seats, '
+                .'count(distinct merk) AS brand_variants',
             $params['$select'],
         );
     }
@@ -651,7 +665,7 @@ final class QueryBuilderTest extends TestCase
     }
 
     /**
-     * @param list<Response> $responses
+     * @param  list<Response>  $responses
      * @return QueryBuilder<RegisteredVehicle>
      */
     private function newBuilder(array $responses = []): QueryBuilder
@@ -664,11 +678,11 @@ final class QueryBuilderTest extends TestCase
             'base_uri' => 'https://opendata.rdw.nl/',
         ]);
 
-        $schema = (new SchemaRegistry())->get(DatasetId::RegisteredVehicles);
+        $schema = (new SchemaRegistry)->get(DatasetId::RegisteredVehicles);
 
         return new QueryBuilder(
             $schema,
-            new SocrataClient(new Configuration(), $guzzle),
+            new SocrataClient(new Configuration, $guzzle),
             RegisteredVehicle::class,
         );
     }

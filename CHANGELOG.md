@@ -2,6 +2,12 @@
 
 All notable changes to `rdw-opendata-php` will be documented in this file.
 
+## v0.3.0 - 2026-05-17
+
+### Added
+
+- `QueryBuilder::groupByRaw(string $expression)` — escape hatch for grouping by an arbitrary SoQL expression (e.g. `date_trunc_ym(datum_eerste_toelating_dt)`). Mirrors the existing `selectRaw` / `orderByRaw` pattern; the expression is appended verbatim and must reference RDW field keys, not English aliases. Enables consumers (notably LLM-driven query plans that want to bucket dates with `date_trunc_y` / `date_trunc_ym` / `date_trunc_ymd`) to group by a derived expression without dropping back to `Rdw::rawRows()`.
+
 ## v0.2.0 - 2026-05-16
 
 ### Added
