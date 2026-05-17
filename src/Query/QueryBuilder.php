@@ -60,7 +60,7 @@ class QueryBuilder
     private ?string $fullTextSearch = null;
 
     /**
-     * @param  class-string<TRecord>  $recordClass  carries the generic binding the schema cannot
+     * @param class-string<TRecord> $recordClass carries the generic binding the schema cannot
      */
     public function __construct(
         private readonly DatasetSchema $schema,
@@ -99,7 +99,7 @@ class QueryBuilder
     }
 
     /**
-     * @param  list<scalar|DateTimeInterface|null>  $values  null is rejected at runtime; use whereRaw for IS NULL
+     * @param list<scalar|DateTimeInterface|null> $values null is rejected at runtime; use whereRaw for IS NULL
      */
     public function whereIn(BackedEnum $field, array $values): static
     {
@@ -132,7 +132,7 @@ class QueryBuilder
     }
 
     /**
-     * @param  list<scalar|DateTimeInterface|null>  $values  null is rejected at runtime; use whereNotNull instead
+     * @param list<scalar|DateTimeInterface|null> $values null is rejected at runtime; use whereNotNull instead
      */
     public function whereNotIn(BackedEnum $field, array $values): static
     {
@@ -229,7 +229,7 @@ class QueryBuilder
         $this->assertFieldBelongsToSchema($field);
 
         $clone = clone $this;
-        $clone->wheres[] = self::encodeField($field).' IS NULL';
+        $clone->wheres[] = self::encodeField($field) . ' IS NULL';
 
         return $clone;
     }
@@ -239,14 +239,14 @@ class QueryBuilder
         $this->assertFieldBelongsToSchema($field);
 
         $clone = clone $this;
-        $clone->wheres[] = self::encodeField($field).' IS NOT NULL';
+        $clone->wheres[] = self::encodeField($field) . ' IS NOT NULL';
 
         return $clone;
     }
 
     /**
-     * @param  scalar|DateTimeInterface  $min
-     * @param  scalar|DateTimeInterface  $max
+     * @param scalar|DateTimeInterface $min
+     * @param scalar|DateTimeInterface $max
      */
     public function whereBetween(BackedEnum $field, mixed $min, mixed $max): static
     {
@@ -264,8 +264,8 @@ class QueryBuilder
     }
 
     /**
-     * @param  scalar|DateTimeInterface  $min
-     * @param  scalar|DateTimeInterface  $max
+     * @param scalar|DateTimeInterface $min
+     * @param scalar|DateTimeInterface $max
      */
     public function whereNotBetween(BackedEnum $field, mixed $min, mixed $max): static
     {
@@ -289,7 +289,7 @@ class QueryBuilder
      * immutable, the callback MUST return the chained builder — a void-return
      * closure discards every where() call.
      *
-     * @param  callable(self<TRecord>): mixed  $callback
+     * @param callable(self<TRecord>): mixed $callback
      */
     public function whereAny(callable $callback): static
     {
@@ -302,7 +302,7 @@ class QueryBuilder
         if (! $result instanceof self) {
             throw new InvalidArgumentException(
                 'whereAny callback must return the chained QueryBuilder — the builder is '
-                .'immutable, so a closure that does not return discards every where() call.',
+                . 'immutable, so a closure that does not return discards every where() call.',
             );
         }
 
@@ -313,7 +313,7 @@ class QueryBuilder
         $clone = clone $this;
         $clone->wheres[] = count($result->wheres) === 1
             ? $result->wheres[0]
-            : '('.implode(') OR (', $result->wheres).')';
+            : '(' . implode(') OR (', $result->wheres) . ')';
 
         return $clone;
     }
@@ -323,7 +323,7 @@ class QueryBuilder
      * AND-joined inside the NOT; combine with whereAny() inside the callback
      * for NOT (a OR b).
      *
-     * @param  callable(self<TRecord>): mixed  $callback
+     * @param callable(self<TRecord>): mixed $callback
      */
     public function whereNot(callable $callback): static
     {
@@ -336,7 +336,7 @@ class QueryBuilder
         if (! $result instanceof self) {
             throw new InvalidArgumentException(
                 'whereNot callback must return the chained QueryBuilder — the builder is '
-                .'immutable, so a closure that does not return discards every where() call.',
+                . 'immutable, so a closure that does not return discards every where() call.',
             );
         }
 
@@ -346,10 +346,10 @@ class QueryBuilder
 
         $inner = count($result->wheres) === 1
             ? $result->wheres[0]
-            : '('.implode(') AND (', $result->wheres).')';
+            : '(' . implode(') AND (', $result->wheres) . ')';
 
         $clone = clone $this;
-        $clone->wheres[] = 'NOT ('.$inner.')';
+        $clone->wheres[] = 'NOT (' . $inner . ')';
 
         return $clone;
     }
@@ -460,7 +460,7 @@ class QueryBuilder
         $this->assertFieldBelongsToSchema($field);
 
         $clone = clone $this;
-        $clone->orders[] = self::encodeField($field).' '.$direction->value;
+        $clone->orders[] = self::encodeField($field) . ' ' . $direction->value;
 
         return $clone;
     }
@@ -577,7 +577,7 @@ class QueryBuilder
 
         if ($this->selects !== []) {
             $select = implode(', ', $this->selects);
-            $params['$select'] = $this->distinct ? 'distinct '.$select : $select;
+            $params['$select'] = $this->distinct ? 'distinct ' . $select : $select;
         }
 
         if ($this->fullTextSearch !== null) {
@@ -587,7 +587,7 @@ class QueryBuilder
         if ($this->wheres !== []) {
             $params['$where'] = count($this->wheres) === 1
                 ? $this->wheres[0]
-                : '('.implode(') AND (', $this->wheres).')';
+                : '(' . implode(') AND (', $this->wheres) . ')';
         }
 
         if ($this->groups !== []) {
@@ -745,7 +745,7 @@ class QueryBuilder
     }
 
     /**
-     * @param  array<string, string>  $params
+     * @param array<string, string> $params
      * @return list<array<string, mixed>>
      */
     private function fetchRows(array $params): array
@@ -796,7 +796,7 @@ class QueryBuilder
         if ($value instanceof DateTimeInterface) {
             // RDW interprets datetime literals as UTC, so normalize before formatting
             // — otherwise CarbonImmutable::parse('...', 'Europe/Amsterdam') shifts an hour.
-            $utc = (new DateTimeImmutable('@'.$value->getTimestamp()))
+            $utc = (new DateTimeImmutable('@' . $value->getTimestamp()))
                 ->setTimezone(new DateTimeZone('UTC'));
 
             return self::quoteString($utc->format('Y-m-d\TH:i:s.000'));
@@ -815,6 +815,6 @@ class QueryBuilder
 
     private static function quoteString(string $value): string
     {
-        return "'".str_replace("'", "''", $value)."'";
+        return "'" . str_replace("'", "''", $value) . "'";
     }
 }
