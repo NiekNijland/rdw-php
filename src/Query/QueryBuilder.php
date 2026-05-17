@@ -446,9 +446,18 @@ class QueryBuilder
      * Escape hatch for grouping by an arbitrary SoQL expression — e.g.
      * `date_trunc_ym(datum_eerste_toelating_dt)`. The expression is appended
      * verbatim and must reference RDW field keys, not English aliases.
+     *
+     * Idempotent for the same expression — RDW rejects a duplicated `$group`
+     * column with HTTP 400, so we dedupe to mirror the typed {@see groupBy()}
+     * counterpart. Only string-equal expressions are considered duplicates;
+     * `date_trunc_ym(x)` and `date_trunc_ym( x )` would both pass through.
      */
     public function groupByRaw(string $expression): static
     {
+        if (in_array($expression, $this->groups, true)) {
+            return $this;
+        }
+
         $clone = clone $this;
         $clone->groups[] = $expression;
 

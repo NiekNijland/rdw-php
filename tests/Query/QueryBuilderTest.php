@@ -175,6 +175,17 @@ final class QueryBuilderTest extends TestCase
         );
     }
 
+    public function test_group_by_raw_is_idempotent_for_the_same_expression(): void
+    {
+        $params = $this->newBuilder()
+            ->selectRaw('date_trunc_y(datum_tenaamstelling_dt)', 'bucket')
+            ->groupByRaw('date_trunc_y(datum_tenaamstelling_dt)')
+            ->groupByRaw('date_trunc_y(datum_tenaamstelling_dt)')
+            ->toSoqlParams();
+
+        self::assertSame('date_trunc_y(datum_tenaamstelling_dt)', $params['$group']);
+    }
+
     public function test_where_like_emits_a_sql_like_clause_with_quoted_pattern(): void
     {
         $params = $this->newBuilder()

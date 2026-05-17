@@ -2,6 +2,12 @@
 
 All notable changes to `rdw-opendata-php` will be documented in this file.
 
+## v0.3.1 - 2026-05-17
+
+### Fixed
+
+- `QueryBuilder::groupByRaw()` is now idempotent for the same expression, mirroring the typed `groupBy()` counterpart. Two calls with a string-equal expression no longer emit a duplicated `$group` column that RDW would reject with HTTP 400.
+
 ## v0.3.0 - 2026-05-17
 
 ### Added
