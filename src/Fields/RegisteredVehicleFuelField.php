@@ -15,9 +15,7 @@ enum RegisteredVehicleFuelField: string
     case LicensePlate = 'kenteken';
     case SequenceNumber = 'brandstof_volgnummer';
     case FuelDescription = 'brandstof_omschrijving';
-    case FuelConsumptionOuter = 'brandstofverbruik_buiten';
     case FuelConsumptionCombined = 'brandstofverbruik_gecombineerd';
-    case FuelConsumptionCity = 'brandstofverbruik_stad';
     case Co2EmissionsCombined = 'co2_uitstoot_gecombineerd';
     case Co2EmissionsWeighted = 'co2_uitstoot_gewogen';
     case NoiseLevelDriving = 'geluidsniveau_rijdend';
@@ -29,7 +27,6 @@ enum RegisteredVehicleFuelField: string
     case ParticulateEmissionsHeavy = 'uitstoot_deeltjes_zwaar';
     case NetMaximumPower = 'nettomaximumvermogen';
     case NominalContinuousMaximumPower = 'nominaal_continu_maximumvermogen';
-    case SootEmissions = 'roetuitstoot';
     case NoiseLevelRpm = 'toerental_geluidsniveau';
     case WltpParticulateEmissionsType1 = 'emis_deeltjes_type1_wltp';
     case WltpCo2EmissionsCombined = 'emissie_co2_gecombineerd_wltp';
@@ -38,12 +35,9 @@ enum RegisteredVehicleFuelField: string
     case WltpFuelConsumptionWeightedCombined = 'brandstof_verbruik_gewogen_gecombineerd_wltp';
     case WltpElectricConsumptionElectricOnly = 'elektrisch_verbruik_enkel_elektrisch_wltp';
     case WltpRangeElectricOnly = 'actie_radius_enkel_elektrisch_wltp';
-    case WltpRangeElectricOnlyCity = 'actie_radius_enkel_elektrisch_stad_wltp';
     case WltpElectricConsumptionExternalCharging = 'elektrisch_verbruik_extern_opladen_wltp';
     case WltpRangeExternalCharging = 'actie_radius_extern_opladen_wltp';
-    case WltpRangeExternalChargingCity = 'actie_radius_extern_opladen_stad_wltp';
     case MaximumPower15Minutes = 'max_vermogen_15_minuten';
-    case MaximumPower60Minutes = 'max_vermogen_60_minuten';
     case NetMaximumPowerElectric = 'netto_max_vermogen_elektrisch';
     case HybridElectricVehicleClass = 'klasse_hybride_elektrisch_voertuig';
     case DeclaredMaximumSpeed = 'opgegeven_maximum_snelheid';

@@ -92,19 +92,6 @@
     "width" : 364,
     "format" : { }
   }, {
-    "id" : 27267720,
-    "name" : "Brandstofverbruik buiten de stad",
-    "dataTypeName" : "text",
-    "description" : "Het brandstofverbruik in l/100 km, tijdens een gestandaardiseerde rit buiten de stad, getest op een rollenbank.",
-    "fieldName" : "brandstofverbruik_buiten",
-    "position" : 5,
-    "renderTypeName" : "text",
-    "tableColumnId" : 284176,
-    "width" : 388,
-    "format" : {
-      "align" : "left"
-    }
-  }, {
     "id" : 27267721,
     "name" : "Brandstofverbruik gecombineerd",
     "dataTypeName" : "text",
@@ -114,19 +101,6 @@
     "renderTypeName" : "text",
     "tableColumnId" : 284177,
     "width" : 460,
-    "format" : {
-      "align" : "left"
-    }
-  }, {
-    "id" : 27267722,
-    "name" : "Brandstofverbruik stad",
-    "dataTypeName" : "text",
-    "description" : "Het brandstofverbruik in l/100 km, tijdens een gestandaardiseerde stadsritcyclus, getest op een rollenbank.",
-    "fieldName" : "brandstofverbruik_stad",
-    "position" : 7,
-    "renderTypeName" : "text",
-    "tableColumnId" : 284178,
-    "width" : 364,
     "format" : {
       "align" : "left"
     }
@@ -274,19 +248,6 @@
       "align" : "left"
     }
   }, {
-    "id" : 27267734,
-    "name" : "Roetuitstoot",
-    "dataTypeName" : "text",
-    "description" : "De mate van vervuiling van de lucht die uit de uitlaat van een voertuig komt tijdens de vrije acceleratietest (roetmeting).\nDe afname van het doorgelaten licht door het in het uitlaatgas aanwezige roet wordt als k-waarde aangegeven in m-1.",
-    "fieldName" : "roetuitstoot",
-    "position" : 19,
-    "renderTypeName" : "text",
-    "tableColumnId" : 284190,
-    "width" : 244,
-    "format" : {
-      "align" : "left"
-    }
-  }, {
     "id" : 27267735,
     "name" : "Toerental geluidsniveau",
     "dataTypeName" : "text",
@@ -370,16 +331,6 @@
     "tableColumnId" : 14326505,
     "format" : { }
   }, {
-    "id" : 27267743,
-    "name" : "Actie radius enkel elektrisch stad wltp",
-    "dataTypeName" : "number",
-    "description" : "Actieradius gemeten bij een op een rollenbank rijdend puur elektrisch voertuig tijdens een rit volgens de WLTP test onder gecombineerde belasting.",
-    "fieldName" : "actie_radius_enkel_elektrisch_stad_wltp",
-    "position" : 28,
-    "renderTypeName" : "number",
-    "tableColumnId" : 14326504,
-    "format" : { }
-  }, {
     "id" : 27267744,
     "name" : "Elektrisch verbruik extern opladen wltp",
     "dataTypeName" : "number",
@@ -400,16 +351,6 @@
     "tableColumnId" : 14326502,
     "format" : { }
   }, {
-    "id" : 27267746,
-    "name" : "Actie radius extern opladen stad wltp",
-    "dataTypeName" : "number",
-    "description" : "Elektrisch verbruik gemeten bij een op een rollenbank rijdend extem oplaadbaar hybride voertuig tijdens een rit volgens de WLTP test onder belasting van een gestandaardiseerde stadsrit.",
-    "fieldName" : "actie_radius_extern_opladen_stad_wltp",
-    "position" : 31,
-    "renderTypeName" : "number",
-    "tableColumnId" : 14326501,
-    "format" : { }
-  }, {
     "id" : 27267747,
     "name" : "Max vermogen 15 minuten",
     "dataTypeName" : "number",
@@ -418,16 +359,6 @@
     "position" : 32,
     "renderTypeName" : "number",
     "tableColumnId" : 14326500,
-    "format" : { }
-  }, {
-    "id" : 27267748,
-    "name" : "Max vermogen 60 minuten",
-    "dataTypeName" : "number",
-    "description" : "Maximumelektrovermogen gemeten over 60 minuten.",
-    "fieldName" : "max_vermogen_60_minuten",
-    "position" : 33,
-    "renderTypeName" : "number",
-    "tableColumnId" : 14326499,
     "format" : { }
   }, {
     "id" : 27267749,
