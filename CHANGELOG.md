@@ -2,6 +2,21 @@
 
 All notable changes to `rdw-opendata-php` will be documented in this file.
 
+## v0.4.0 - 2026-05-30
+
+Drop 6 fuel columns (dataset 8ys7-d773) that RDW removed from the live dataset — querying them returned HTTP 400 `no-such-column`, so the generated enum cases were dead.
+
+Removed:
+
+- `brandstofverbruik_buiten` (FuelConsumptionOuter)
+- `brandstofverbruik_stad` (FuelConsumptionCity)
+- `roetuitstoot` (SootEmissions)
+- `max_vermogen_60_minuten` (MaximumPower60Minutes)
+- `actie_radius_enkel_elektrisch_stad_wltp` (WltpRangeElectricOnlyCity)
+- `actie_radius_extern_opladen_stad_wltp` (WltpRangeExternalChargingCity)
+
+**Breaking:** removes the corresponding `RegisteredVehicleFuelField` enum cases and `RegisteredVehicleFuel` properties.
+
 ## v0.3.1 - 2026-05-17
 
 ### Fixed
@@ -55,6 +70,7 @@ Initial release of the typed PHP client for the RDW Open Data `Voertuigen` datas
 
 ```bash
 composer require nieknijland/rdw-opendata-php
+
 
 ```
 ## v0.1.0 - 2026-05-16
